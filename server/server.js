@@ -9,6 +9,7 @@ const cookieParser = require('cookie-parser');
 /*
 require routers  
 */
+const apiRouter = require('./routes/api.js');
 
 // write code here 
 
@@ -26,13 +27,11 @@ app.use(cookieParser());
 
 // respond with html file when a GET request is made to homepage 
 app.get('/', (req, res) => {
-  console.log("hitting get");
   return res.status(200).sendFile(path.join(__dirname, '../build', 'index.html'));
 });
 
 // TO DO: mount the route handlers
-// write code here 
-
+app.use('/api', apiRouter);
 
 // catch-all route handler for any requests to an unknown route
 app.use('*', (req, res) => {
