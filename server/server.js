@@ -19,13 +19,11 @@ app.use(express.json());
 // cookie parser - populate req.cookies
 app.use(cookieParser());
 
-/*
-route handler 
-*/
 
 // respond with html file when a GET request is made to homepage 
 app.get('/', (req, res) => {
-  return res.status(200).sendFile(path.join(__dirname, '../client/index.html'));
+  console.log("hitting get");
+  return res.status(200).sendFile(path.join(__dirname, '../build', 'index.html'));
 });
 
 // TO DO: mount the route handlers
