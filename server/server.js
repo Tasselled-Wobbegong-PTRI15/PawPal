@@ -12,6 +12,10 @@ require routers
 
 // write code here 
 
+// serve static files from build
+
+app.use(express.static(path.join(__dirname, '../build')));
+
 
 // handling incoming request bodies as JSON
 app.use(express.json());
