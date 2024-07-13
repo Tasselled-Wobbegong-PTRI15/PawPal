@@ -49,12 +49,39 @@ petController.createPets = async (req, res, next) => {
 
 // edit pets 
 petController.editPets = async (req, res, next) => {
-  // 
+  
 }
 
 // delete pets 
 petController.deletePets = async (req, res, next) => {
-  //  
+  const { pet_id } = req.body;
+
+  try {
+    const text = `
+    DELETE FROM pet
+    WHERE pet_id = $1;`
+    const params = [pet_id];
+    const result = await db.query(text, params);
+
+    if (result.rowCount === 0) {
+      return next({
+        log: 'petController.deletePets ERROR: Pet not found',
+        message: {
+          err: 'Error finding pet'
+        },
+        status: 404
+      });
+    }
+    return next();
+  } catch (error) {
+    return next({
+      log: `petController.deletePets ERROR: ${error}`,
+      message: {
+          err: 'Error in petController.deletePets.'
+      },
+      status: 500
+  });
+  }
 }
 
 
