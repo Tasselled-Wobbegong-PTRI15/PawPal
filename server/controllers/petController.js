@@ -9,7 +9,7 @@ petController.getPets = async (req, res, next) => {
         WHERE pet_id = $1
         ` 
         // TO DO: edit param's arry to dynamically get owner_id (or pet_id) from request body 
-        const param = [1]
+        const param = [4]
         const result = await db.query(text, param);
 
         res.locals.petInfo = result.rows[0];
