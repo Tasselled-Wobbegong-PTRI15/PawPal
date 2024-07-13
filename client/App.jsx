@@ -1,14 +1,23 @@
 import React from 'react';
-import Main from './Pages/Main.jsx'
-import Dog from './Dog.jsx'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Main from './Pages/Main.jsx';
+import Dog from './Dog.jsx';
+import Signup from './Pages/Signup.jsx';
+import Navigation from './Navigation.jsx';
 
 const App = () => {
   return (
-    <div className="home">
-      <h1>hello</h1>
-      < Main />
-      < Dog />
-    </div>
+    <Router>
+      <div className="home">
+        <h1>Hello</h1>
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/dog" element={<Dog />} />
+          <Route path="/signup" element={<Signup />} />
+        </Routes>
+      </div>
+    </Router>
   );
 };
 
