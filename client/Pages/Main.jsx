@@ -21,6 +21,7 @@ const Main = () => {
     // console.log(e.target);
   };
 
+  // TODO - add `useEffect` 
   const handleAddDog = async (e) => {
     // Logic for adding a dog (e.g., sending data to a backend)
     console.log('Dog information added:', dogInfo);
