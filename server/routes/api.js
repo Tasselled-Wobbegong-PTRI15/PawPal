@@ -16,13 +16,13 @@ router.post('/', petController.createPets, (req, res) => {
 })
 
 // handle 'patch' request to /api. Edit dog info in the database 
-router.patch('/', (req, res) => {
-    // add code 
+router.patch('/',petController.editPets, (req, res) => {
+    return res.status(200).json('successfully patched');
 })
 
 // handle 'delete' request to /api. Delete dog info (row) from the database
-router.patch('/', (req, res) => {
-    // add code 
+router.delete('/',petController.deletePets, (req, res) => {
+    return res.status(200).json('successfully deleted');
 })
 
 
