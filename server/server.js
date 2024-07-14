@@ -39,7 +39,7 @@ app.use('/api', apiRouter);
 app.use('/signup', signupRouter);
 
 // log in route - handle a request to log in
-// app.use('/login', loginRouter)
+app.use('/login', loginRouter)
 
 // catch-all route handler for any requests to an unknown route
 app.use('*', (req, res) => {

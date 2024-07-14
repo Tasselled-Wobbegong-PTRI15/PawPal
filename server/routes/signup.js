@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('path'); 
 const router = express.Router();
 const userController = require('../controllers/userController.js');
+const sessionController = require('../controllers/sessionController.js');
+const cookieController = require('../controllers/cookieController.js');
 
 // handle POST request to '/signup/' 
 router.get('/', (req, res) => {
@@ -12,10 +14,9 @@ router.get('/', (req, res) => {
 
 router.post('/', 
   userController.createUser, 
-  // sessionController.startSession - store new session with uuid in database
-  // cookieController.setSSIDCookie - set cookie in response body (ssid: uuid)
+  sessionController.startsession,
+  cookieController.setSSIDCookie, 
   (req, res) => {
-    console.log('created a user and came back to the final middleware')
     // redirect to main app after sign up
     res.redirect('/'); // TO DO - check the redirect route 
   }
