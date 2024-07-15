@@ -7,45 +7,45 @@ const userController = {};
 // middleware to create a new user
 userController.createUser = async ( req, res, next ) => {
     
-    try{
-      const { username, password, email } = req.body; 
+  try{
+    const { username, password, email } = req.body; 
 
-      // console.log('req body is: ', req.body)
+    // console.log('req body is: ', req.body)
 
-      // hash the password using bcrypt 
-      const salt = await bcrypt.genSalt(10);
-      const hashedPassword = await bcrypt.hash(password, salt);
+    // hash the password using bcrypt 
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
 
-      // console.log('hassedPassword is: ', hashedPassword);
+    // console.log('hassedPassword is: ', hashedPassword);
 
-      // write a query and param 
-      const insertUserQuery = `
-      INSERT INTO "user" (username, email, password)
-      VALUES ($1, $2, $3)
-      RETURNING id, username, email`;
+    // write a query and param 
+    const insertUserQuery = `
+    INSERT INTO "user" (username, email, password)
+    VALUES ($1, $2, $3)
+    RETURNING id, username, email`;
 
-      const insertUserParams = [username, email, hashedPassword]
+    const insertUserParams = [username, email, hashedPassword]
 
-      // run query to save a user in 'user' table 
-      const result = await db.query(insertUserQuery, insertUserParams)
+    // run query to save a user in 'user' table 
+    const result = await db.query(insertUserQuery, insertUserParams)
 
-      // console.log('result of running db.query :', result);
+    // console.log('result of running db.query :', result);
 
-      const userId = result.rows[0].id;
+    const userId = result.rows[0].id;
 
-      // save user id in res.locals
-      res.locals.userId = userId;
-      // return next 
-      next();
-    } catch (error) {
-      // handle error 
-      console.log('error in db.query')
-    }
+    // save user id in res.locals
+    res.locals.userId = userId;
+    // return next 
+    next();
+  } catch (error) {
+    // handle error 
+    console.log('error in db.query')
+  }
 }
 
 // middleware to verify a user
 userController.verifyUser = async (req, res, next) => {
-  
+
   try{
     // get user data (username, password) from request body 
     const { username, password } = req.body;
@@ -61,31 +61,22 @@ userController.verifyUser = async (req, res, next) => {
     const findUserParams = [username]; 
     const result = await db.query(findUserQuery, findUserParams);
 
-    console.log('result of running query is', result)
-
     const storedPassword = result.rows[0].password;
     
-    // compare username and password (bcrypt). if they dont match, redirect a user to signup page 
-    console.log('passwords are ', password, ', ', storedPassword);
-
+    // compare passwords. if they dont match, redirect a user to signup page 
     const isMatch = await bcrypt.compare(password, storedPassword);
-    if(!isMatch) { // TODO: hits if password is wrong? 
-      console.log('username/password doesnt match - redirect to signup')
-      res.redirect('/signup')
-    }
-    
-    // store user's id in res.locals 
-    res.locals.userId = result.rows[0].id;
 
-    console.log('res.locals.userId ', res.locals.userId);
-    
-    // return next 
-    return next();
-    
+    if (!isMatch) { 
+      console.log('username/password doesnt match - redirect to signup')
+      res.redirect('/signup') // there's no sign up page set up yet
+    } else {
+      // store user's id in res.locals, then return to next middleware 
+      res.locals.userId = result.rows[0].id;
+      return next();
+    }
   } catch (error) {
     return res.status(500).json({error: 'Server Error'});
   }
 }
-
 
 module.exports = userController;
