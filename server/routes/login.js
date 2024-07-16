@@ -18,6 +18,7 @@ router.post('/',
     sessionController.startsession,
     cookieController.setSSIDCookie, 
   (req, res) => {
+    console.log('redirect to main')
     res.redirect('/'); 
   }
 )

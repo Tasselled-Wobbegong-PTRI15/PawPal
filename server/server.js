@@ -12,6 +12,12 @@ const apiRouter = require('./routes/api.js');
 const signupRouter = require('./routes/signup.js');
 const loginRouter = require('./routes/login.js');
 
+// global logging middleware
+app.use((req, res, next) => {
+  console.log(`${req.method} request for '${req.url}'`);
+  next();
+});
+
 // serve static files from build for production 
 app.use(express.static(path.join(__dirname, '../build')));
 

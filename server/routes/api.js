@@ -11,7 +11,7 @@ router.get('/', petController.getPets, (req, res) => {
 });
 
 // handle 'post' request to /api. Save dog info into the database 
-router.post('/', petController.createPets, (req, res) => {
+router.post('/', petController.createPets, petController.addImage, (req, res) => {
     return res.status(200).json('success');
 })
 
@@ -25,5 +25,10 @@ router.delete('/',petController.deletePets, (req, res) => {
     return res.status(200).json('successfully deleted');
 })
 
+// handle 'get' request to /api/image. Send dog image to a client 
+// TODO: complete 'getPetImage' middleware
+router.get('/image', petController.getPetImage, (req, res) => {
+    return res.status(200).json(res.locals.petImage);
+})
 
 module.exports = router;

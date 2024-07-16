@@ -18,7 +18,7 @@ router.post('/',
   cookieController.setSSIDCookie, 
   (req, res) => {
     // redirect to main app after sign up
-    res.redirect('/'); // TO DO - check the redirect route 
+    res.redirect('/'); 
   }
 );
 

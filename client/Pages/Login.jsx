@@ -1,17 +1,15 @@
-
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-
 const Login = () => {
   const [inputs, setInputs] = useState({
-    email: "",
+    username: "",
     password: "",
   });
 
   const [error, setError] = useState('');
 
-  const { email, password } = inputs;
+  const { username, password } = inputs;
 
   const navigate = useNavigate();
 
@@ -23,13 +21,13 @@ const Login = () => {
     e.preventDefault();
 
     if (!inputs.username.trim() || !inputs.password.trim()) {
-      setErrorMessage('username and password cannot be empty!');
+      setError('username and password cannot be empty!');
       return;
     }
-    setErrorMessage('');
+    setError('');
 
     try {
-      const body = { email, password };
+      const body = { username, password };
       const response = await fetch("/login", {
         method: "POST",
         headers: {
@@ -57,10 +55,10 @@ const Login = () => {
           <form onSubmit={handleSubmit}>
             <div className="input-box">
               <input
-                type="email"
-                name="email"
-                placeholder="Enter your email"
-                value={email}
+                type="text"
+                name="username"
+                placeholder="Username"
+                value={username}
                 onChange={onChange}
                 required
               />
@@ -69,7 +67,7 @@ const Login = () => {
               <input
                 type="password"
                 name="password"
-                placeholder="Enter your password"
+                placeholder="Password"
                 value={password}
                 onChange={onChange}
                 required

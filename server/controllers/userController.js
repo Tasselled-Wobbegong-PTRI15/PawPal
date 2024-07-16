@@ -45,7 +45,6 @@ userController.createUser = async ( req, res, next ) => {
 
 // middleware to verify a user
 userController.verifyUser = async (req, res, next) => {
-
   try{
     // get user data (username, password) from request body 
     const { username, password } = req.body;

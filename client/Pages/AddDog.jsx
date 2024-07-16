@@ -12,13 +12,11 @@ const AddDog = () => {
     color:'',
     gender: '',
     microchip: '',
+    image: '',
   });
 
   const handleChange = (e) => {
-    // const { name, value } = e.target;
-    // console.log(dogInfo);
     setDogInfo({ ...dogInfo, [e.target.name]: e.target.value });
-    // console.log(e.target);
   };
 
   // TODO - add `useEffect` 
@@ -35,10 +33,9 @@ const AddDog = () => {
       });
 
       if (response.ok) {
-        // TODO: update setDogInfo 
         setDogInfo({
           ...dogInfo,
-          name: '',
+            name: '',
             dob: '',
             age: '',
             species:'',
@@ -48,6 +45,7 @@ const AddDog = () => {
             color:'',
             gender: '',
             microchip: '',
+            image: '',
         });
       } else {
         console.log('failed to save resource');
@@ -57,7 +55,6 @@ const AddDog = () => {
     }
   };
 
-  // TODO: add input tags 
   return (
     <div>
       <input
@@ -78,7 +75,7 @@ const AddDog = () => {
         value={dogInfo.dob}
         onChange={handleChange}
       />
-        <input
+      <input
         name='age'
         placeholder='Age'
         value={dogInfo.age}
@@ -118,6 +115,12 @@ const AddDog = () => {
         name='color'
         placeholder='Color'
         value={dogInfo.color}
+        onChange={handleChange}
+      />
+      <input
+        name='image'
+        placeholder='Image'
+        value={dogInfo.image}
         onChange={handleChange}
       />
       <button onClick={handleAddDog}>Add Dog</button>
