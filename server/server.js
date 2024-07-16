@@ -4,21 +4,16 @@ const express = require('express');
 const app = express();
 const PORT = 3000;
 
-const cookieParser = require('cookie-parser'); 
-const history = require('connect-history-api-fallback');
-/*
-require routers  
-*/
+const cookieParser = require('cookie-parser'); // parse cookie in request body 
+const history = require('connect-history-api-fallback'); // always server index.html for all not asset requests, enabling client-side routing (SPA)
+
+// require routers  
 const apiRouter = require('./routes/api.js');
 const signupRouter = require('./routes/signup.js');
 const loginRouter = require('./routes/login.js');
 
-// write code here 
-
-// serve static files from build
-
+// serve static files from build for production 
 app.use(express.static(path.join(__dirname, '../build')));
-
 
 // handling incoming request bodies as JSON
 app.use(express.json());
@@ -26,6 +21,7 @@ app.use(express.json());
 // cookie parser - populate req.cookies
 app.use(cookieParser());
 
+// middleware to handle fallback for HTML5 history API
 app.use(history());
 
 // respond with html file when a GET request is made to homepage 
@@ -33,7 +29,7 @@ app.get('/', (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, '../build', 'index.html'));
 });
 
-// TO DO: mount the route handlers
+// api route - handle a request to api 
 app.use('/api', apiRouter);
 
 // sign up route - handle a request to sign up 
