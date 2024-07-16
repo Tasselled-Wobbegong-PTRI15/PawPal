@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-const Dog = () => {
+const Dog = props => {
     // create a state
     const [dogInfo, setDogInfo] = useState({
         name: '',
@@ -47,23 +47,53 @@ const Dog = () => {
         displayDogInfo();
     }, [])
         
-
+    const handleEditClick = () => {
+        // edit logic goes here, redirect to separate page to edit dog info? 
+    }
     // return dog information 
     return(
         <div>
-            <p>{dogInfo.name}</p>
-            <p>{dogInfo.dob}</p>
-            <p>{dogInfo.age}</p>
-            <p>{dogInfo.species}</p>
-            <p>{dogInfo.breed}</p>    
-            <p>{dogInfo.weight_lb}</p>    
-            <p>{dogInfo.height_cm}</p>    
-            <p>{dogInfo.color}</p>    
-            <p>{dogInfo.gender}</p>    
-            <p>{dogInfo.microchip}</p>    
+            <p>
+                <label htmlFor ='name'>Name: </label>
+                <span id= "dogName">{dogInfo.name} </span>
+            </p>
+            <p>
+                <label htmlFor ='species'>Species: </label>
+                <span id= "species">{dogInfo.species} </span>
+            </p>
+            <p>
+                <label htmlFor ='breed'>Breed: </label>
+                <span id= "breed">{dogInfo.breed} </span>
+            </p>      
+            <p>
+                <label htmlFor ='dob'>Date of Birth: </label>
+                <span id= "dob">{dogInfo.dob} </span>
+            </p>
+            <p>
+                <label htmlFor ='weight_lb'>Weight(lbs): </label>
+                <span id= "weight_lb">{dogInfo.weight_lb} </span>
+            </p>
+            <p>
+                <label htmlFor ='height_cm'>Height(cm): </label>
+                <span id= "height_cm">{dogInfo.height_cm} </span>
+            </p>    
+            <p>
+                <label htmlFor ='color'>Color: </label>
+                <span id= "color">{dogInfo.color} </span>
+            </p>    
+            <p>
+                <label htmlFor ='gender'>Gender: </label>
+                <span id= "gender">{dogInfo.gender} </span>
+            </p>    
+            <p>
+                <label htmlFor ='microchip'>Microchip number: </label>
+                <span id= "microchip">{dogInfo.microchip} </span>
+            </p>
+            <button onClick ={handleEditClick}>Edit</button>    
         </div>
     )
 }
 
 
 export default Dog; 
+
