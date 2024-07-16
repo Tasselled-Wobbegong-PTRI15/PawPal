@@ -28,11 +28,12 @@ petController.getPets = async (req, res, next) => {
 // create pets
 petController.createPets = async (req, res, next) => {
     const { name, dob, age, species, breed, weight_lb, height_cm, color, microchip, owner_id, gender } = req.body;
-    console.log('req body is ', req.body);
+    // console.log('req body is ', req.body);
   try {
     const text = `
-    INSERT INTO pet (name, dob, age, species, breed, weight_lb, height_cm, color, microchip, owner_id, gender)
-    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11);`
+      INSERT INTO pet (name, dob, age, species, breed, weight_lb, height_cm, color, microchip, owner_id, gender)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11);
+    `
     const params = [ name, dob, age, species, breed, weight_lb, height_cm, color, microchip, owner_id, gender ];
     const result = await db.query(text, params);
     return next();
@@ -49,7 +50,44 @@ petController.createPets = async (req, res, next) => {
 
 // edit pets 
 petController.editPets = async (req, res, next) => {
+  // NOTE: 
+  // 1. current query expects all columns data coming from req_body (including changed/non-changed values)
+  // 2. 'pet_id' is expected in req.body 
+  const { name, dob, age, species, breed, weight_lb, height_cm, color, microchip, owner_id, gender, pet_id } = req.body;
   
+  try {
+    const text = `
+      UPDATE pet
+      SET 
+        name = $1,
+        dob = $2,
+        age = $3,
+        species = $4,
+        breed = $5,
+        weight_lb = $6,
+        height_cm = $7,
+        color = $8,
+        microchip = $9,
+        owner_id = $10,
+        gender = $11
+      WHERE 
+        pet_id = $12
+      RETURNING *
+    `
+    const params = [ name, dob, age, species, breed, weight_lb, height_cm, color, microchip, owner_id, gender, pet_id];
+    const result = await db.query(text, params);
+    // console.log('result is ', result);
+    return next();
+  } catch (error) {
+    return next({
+      log: `petController.editPets ERROR: ${error}`,
+      message: {
+          err: 'Error in petController.editPets.'
+      },
+      status: 500
+  });
+  }
+
 }
 
 // delete pets 
