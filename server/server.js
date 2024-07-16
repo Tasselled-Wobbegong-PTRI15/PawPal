@@ -5,7 +5,7 @@ const app = express();
 const PORT = 3000;
 
 const cookieParser = require('cookie-parser'); 
-
+const history = require('connect-history-api-fallback');
 /*
 require routers  
 */
@@ -26,6 +26,7 @@ app.use(express.json());
 // cookie parser - populate req.cookies
 app.use(cookieParser());
 
+app.use(history());
 
 // respond with html file when a GET request is made to homepage 
 app.get('/', (req, res) => {
@@ -44,7 +45,7 @@ app.use('/login', loginRouter)
 // catch-all route handler for any requests to an unknown route
 app.use('*', (req, res) => {
   console.log('catch-all route handler is executed');
-  res.sendStatus(404);
+  return res.status(200).sendFile(path.join(__dirname, '../build', 'index.html'));
 });
 
 // global error handler to return status and message to client 
