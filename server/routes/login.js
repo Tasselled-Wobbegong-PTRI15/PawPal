@@ -8,6 +8,7 @@ const cookieController = require('../controllers/cookieController.js');
 
 // router to handle GET request to /login - serve 'login.html' file (TBD)
 router.get('/', (req, res) => {
+  console.log('/login get is hit')
   res.sendFile(path.resolve(__dirname, '../../client/login.html')) // TODO: update after creating login.html 
 })
 
