@@ -153,14 +153,15 @@ petController.deletePets = async (req, res, next) => {
 
 // get pet image 
 petController.getPetImage = async (req, res, next) => {
-  console.log('getting pet image')
+  console.log('getPetImage middleware hits')
+  const { pet_id } = req.query;
+  console.log('pet id is', pet_id)
   try {
     const text = `
       SELECT * FROM pet_image
       WHERE pet_id = $1
     `
-    // TODO: pass dog_id into param 
-    const param = [16]
+    const param = [pet_id]; // add '16' as test
     const result = await db.query(text, param);
 
     res.locals.petImage = result.rows[0].image;
@@ -176,6 +177,32 @@ petController.getPetImage = async (req, res, next) => {
   }
 }
 
+// get all pet list 
+petController.getPetList = async (req, res, next) => {
+  console.log('getPetList hits')
+  const owner_id = req.cookies.ssid;
+  console.log('owner id', owner_id)
+  try {
+    const text = `
+      SELECT *
+      FROM pet
+      WHERE owner_id = $1
+    `
+    const params = [owner_id];
+    const result = await db.query(text, params);
+    // console.log('result rows ', result.rows);
+    res.locals.allPetList = result.rows;
+    return next();
+  } catch (error) {
+    return next({
+      log: `petController.getPetList ERROR: ${error}`,
+      message: {
+        err: 'Error in petController.getgPetList.'
+      },
+      status: 500
+    });
+  }
+}
 
 module.exports = petController;
 

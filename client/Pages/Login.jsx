@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Main from "./Main.jsx";
 
 const Login = () => {
   const [inputs, setInputs] = useState({

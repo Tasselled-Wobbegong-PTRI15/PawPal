@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const AddDog = () => {
   const [dogInfo, setDogInfo] = useState({
@@ -57,73 +58,76 @@ const AddDog = () => {
 
   return (
     <div>
-      <input
-        name='name'
-        placeholder='Name'
-        value={dogInfo.name}
-        onChange={handleChange}
-      />
-      <input
-        name='breed'
-        placeholder='Breed'
-        value={dogInfo.breed}
-        onChange={handleChange}
-      />
-      <input
-        name='dob'
-        placeholder='Date of Birth'
-        value={dogInfo.dob}
-        onChange={handleChange}
-      />
-      <input
-        name='age'
-        placeholder='Age'
-        value={dogInfo.age}
-        onChange={handleChange}
-      />
-      <input
-        name='gender'
-        placeholder='Gender'
-        value={dogInfo.gender}
-        onChange={handleChange}
-      />
-      <input
-        name='species'
-        placeholder='Species'
-        value={dogInfo.species}
-        onChange={handleChange}
-      />
-      <input
-        name='microchip'
-        placeholder='Microchip Number'
-        value={dogInfo.microchip}
-        onChange={handleChange}
-      />
-      <input
-        name='weight_lb'
-        placeholder='Weight'
-        value={dogInfo.weight_lb}
-        onChange={handleChange}
-      />
-       <input
-        name='height_cm'
-        placeholder='Height'
-        value={dogInfo.height_cm}
-        onChange={handleChange}
-      />
-      <input
-        name='color'
-        placeholder='Color'
-        value={dogInfo.color}
-        onChange={handleChange}
-      />
-      <input
-        name='image'
-        placeholder='Image'
-        value={dogInfo.image}
-        onChange={handleChange}
-      />
-      <button onClick={handleAddDog}>Add Dog</button>
+      <div>
+        <input
+          name='name'
+          placeholder='Name'
+          value={dogInfo.name}
+          onChange={handleChange}
+        />
+        <input
+          name='breed'
+          placeholder='Breed'
+          value={dogInfo.breed}
+          onChange={handleChange}
+        />
+        <input
+          name='dob'
+          placeholder='Date of Birth'
+          value={dogInfo.dob}
+          onChange={handleChange}
+        />
+        <input
+          name='age'
+          placeholder='Age'
+          value={dogInfo.age}
+          onChange={handleChange}
+        />
+        <input
+          name='gender'
+          placeholder='Gender'
+          value={dogInfo.gender}
+          onChange={handleChange}
+        />
+        <input
+          name='species'
+          placeholder='Species'
+          value={dogInfo.species}
+          onChange={handleChange}
+        />
+        <input
+          name='microchip'
+          placeholder='Microchip Number'
+          value={dogInfo.microchip}
+          onChange={handleChange}
+        />
+        <input
+          name='weight_lb'
+          placeholder='Weight'
+          value={dogInfo.weight_lb}
+          onChange={handleChange}
+        />
+        <input
+          name='height_cm'
+          placeholder='Height'
+          value={dogInfo.height_cm}
+          onChange={handleChange}
+        />
+        <input
+          name='color'
+          placeholder='Color'
+          value={dogInfo.color}
+          onChange={handleChange}
+        />
+        <input
+          name='image'
+          placeholder='Image'
+          value={dogInfo.image}
+          onChange={handleChange}
+        />
+        <button onClick={handleAddDog}>Add Dog</button>
+      </div>
+      <Link to="/">Go to main page</Link>
     </div>
   );
 };

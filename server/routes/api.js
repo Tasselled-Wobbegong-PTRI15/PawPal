@@ -31,4 +31,8 @@ router.get('/image', petController.getPetImage, (req, res) => {
     return res.status(200).json(res.locals.petImage);
 })
 
+router.get('/allpets', petController.getPetList, (req, res) => {
+    return res.status(200).json(res.locals.allPetList);
+})
+
 module.exports = router;
