@@ -47,9 +47,18 @@ const Signup = () => {
   return (
     <div className="forms">
       <div className="form-content">
-        <div className="signup-form">
-          <div className="register-title">Register</div>
+        <div className="form">
+          <div className="title">Register</div>
           <form onSubmit={handleSubmit}>
+          <div className="input-box">
+              <input
+                type="text"
+                name="username"
+                placeholder="Enter your username"
+                value={username}
+                onChange={onChange}
+                required
+              />
             <div className="input-box">
               <input
                 type="email"
@@ -70,19 +79,10 @@ const Signup = () => {
                 required
               />
             </div>
-            <div className="input-box">
-              <input
-                type="text"
-                name="username"
-                placeholder="Enter your username"
-                value={username}
-                onChange={onChange}
-                required
-              />
             </div>
 
             <div className="button input-box">
-              <button type="submit" className="registerBtn">Submit</button>
+              <button type="submit" className="btn">Sign up</button>
             </div>
             {error && <div className="error-message">{error}</div>}
           </form>
