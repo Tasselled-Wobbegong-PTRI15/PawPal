@@ -25,5 +25,38 @@ sessionController.startsession = async (req, res, next) => {
 
 }
 
+sessionController.isLoggedIn = async (req, res, next) => {
+
+  const { userId } = req.cookies;
+
+  console.log(`req.cookies`, req.cookies);
+
+  if(!userId) {
+    return res.send("not logged in")
+  }
+
+try {
+  console.log("in checkSessionQuery")
+  const checkSessionQuery = `
+  SELECT * FROM "session"
+  WHERE cookie_id = $1
+  `;
+
+  const checkSessionParams = [userId];
+
+  // run the query to check if there is a matching session
+  const result = await db.query(checkSessionQuery, checkSessionParams);
+
+  if (result.rows.length === 0) {
+  return res.status(401).send('Session not found');
+  }
+  next();
+
+}
+catch(error){
+    console.log('error')
+  }
+}
+
 
 module.exports = sessionController;

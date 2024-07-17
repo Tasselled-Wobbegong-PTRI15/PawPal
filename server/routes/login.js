@@ -23,4 +23,10 @@ router.post('/',
   }
 )
 
+
+router.get('/', sessionController.isLoggedIn, (req, res) => {
+  console.log("secret hit");
+  res.sendFile(path.resolve(__dirname, '../client/Main.jsx'));
+});
+
 module.exports = router;

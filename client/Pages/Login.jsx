@@ -50,8 +50,9 @@ const Login = () => {
   return (
     <div className="forms">
       <div className="form-content">
-        <div className="login-form">
-          <div className="login-title">Login</div>
+        <div className="form">
+        <div className="title">
+          <div className="title">Login</div>
           <form onSubmit={handleSubmit}>
             <div className="input-box">
               <input
@@ -75,11 +76,15 @@ const Login = () => {
             </div>
 
             <div className="button input-box">
-              <button type="submit" className="loginBtn">Submit</button>
+              <button type="submit" className="Btn">Login</button>
+            </div>
+            <div className = "hyperlink">
+            <p><a href="/Signup">New around here? Sign up</a></p>
             </div>
             {error && <div className="error-message">{error}</div>}
           </form>
         </div>
+      </div>
       </div>
     </div>
   );
