@@ -27,8 +27,6 @@ app.use(express.json());
 // cookie parser - populate req.cookies
 app.use(cookieParser());
 
-// middleware to handle fallback for HTML5 history API
-app.use(history());
 
 // respond with html file when a GET request is made to homepage 
 app.get('/', (req, res) => {
@@ -37,6 +35,9 @@ app.get('/', (req, res) => {
 
 // api route - handle a request to api 
 app.use('/api', apiRouter);
+
+// middleware to handle fallback for HTML5 history API
+app.use(history());
 
 // sign up route - handle a request to sign up 
 app.use('/signup', signupRouter);
