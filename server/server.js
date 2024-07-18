@@ -27,7 +27,6 @@ app.use(express.json());
 // cookie parser - populate req.cookies
 app.use(cookieParser());
 
-
 // respond with html file when a GET request is made to homepage 
 app.get('/', (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, '../build', 'index.html'));
@@ -35,6 +34,10 @@ app.get('/', (req, res) => {
 
 // api route - handle a request to api 
 app.use('/api', apiRouter);
+
+app.get('/dog/:dog_id', (req, res) => {
+  console.log('new endpoint to /dog/:dog-')
+})
 
 // middleware to handle fallback for HTML5 history API
 app.use(history());

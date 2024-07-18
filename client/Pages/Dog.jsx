@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useParams, useSearchParams, useLocation } from "react-router-dom";
 import Navigation from "../Navigation.jsx"; 
 
 const Dog = () => {
+  const params = useLocation();
+  console.log('params is', params);
   const [dogInfo, setDogInfo] = useState({
     name: "",
     dob: "",
