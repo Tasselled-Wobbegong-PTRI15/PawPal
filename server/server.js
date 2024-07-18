@@ -41,6 +41,9 @@ app.use(history());
 // sign up route - handle a request to sign up 
 app.use('/signup', signupRouter);
 
+// showing the all pets page - handle a request to /allpets
+app.use('/allpets', apiRouter);
+
 // log in route - handle a request to log in
 app.use('/login', loginRouter)
 
