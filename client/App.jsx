@@ -12,6 +12,7 @@ import Journal from './Pages/journal.jsx';
 // import Navigation from './Navigation.jsx'; // => navigation to be moved to 'Dog.jsx' and its child components 
 
 // App component sets up the router and defines all the routes for the application
+// App component sets up the router and defines all the routes for the application
 const App = () => {
   return (
     <Router>
@@ -20,10 +21,9 @@ const App = () => {
           <Route path='/adddog' element={<AddDog />} />
           <Route path='/signup' element={<Signup />} />
           <Route path='/login' element={<Login />} />
-          <Route path='/dog' element={<Dog />} >
-              <Route path=':dog_id/VaccineRecords' element={<VaccineRecords />} /> 
-              <Route path=':dog_id/HaircutRecords' element={<HaircutRecords />} /> 
-            </Route>
+          <Route path='/dog' element={<Dog />} />
+          <Route path= '/VaccineRecords' element = {<VaccineRecords />} />
+          <Route path= '/HaircutRecords' element = {<HaircutRecords />} />
           <Route path='/tricks' element={<Tricks />} />
         <Route path='/journal' element={<Journal />} />
         </Routes>

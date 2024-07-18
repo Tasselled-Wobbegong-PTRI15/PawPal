@@ -35,10 +35,6 @@ app.get('/', (req, res) => {
 // api route - handle a request to api 
 app.use('/api', apiRouter);
 
-app.get('/dog/:dog_id', (req, res) => {
-  console.log('new endpoint to /dog/:dog-')
-})
-
 // middleware to handle fallback for HTML5 history API
 app.use(history());
 

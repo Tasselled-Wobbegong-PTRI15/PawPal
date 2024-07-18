@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Route, Routes, useParams, useSearchParams, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Navigation from "../Navigation.jsx"; 
 
 const Dog = () => {
-  const params = useLocation();
-  console.log('params is', params);
+  // access query parameter 
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const pet_id = queryParams.get('pet_id');
+  console.log('pet_id is', pet_id);
+
   const [dogInfo, setDogInfo] = useState({
     name: "",
     dob: "",
@@ -18,6 +22,9 @@ const Dog = () => {
     microchip: "",
   });
 
+  // store pet_id in state
+  const [petId, setPetId] = useState(pet_id);
+
   const [isEditing, setIsEditing] = useState(false);
 
   console.log("state is", dogInfo);
@@ -26,9 +33,9 @@ const Dog = () => {
     const displayDogInfo = async () => {
       console.log("displayDogInfo is running");
       try {
-        const response = await fetch("/api");
+        const response = await fetch(`/api?pet_id=${petId}`);
         const result = await response.json();
-        console.log("result", result);
+        // console.log("result", result);
         setDogInfo(result);
       } catch (error) {
         console.log("error happened in fetch request");
@@ -79,7 +86,7 @@ const Dog = () => {
 
   return (
     <div>
-      <Navigation />
+      <Navigation pet_id={pet_id} />
       <Routes>
         <Route
           path="/"
