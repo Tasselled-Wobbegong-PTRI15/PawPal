@@ -16,7 +16,7 @@ userController.createUser = async ( req, res, next ) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    // console.log('hassedPassword is: ', hashedPassword);
+    console.log(`createUser hit`);
 
     // write a query and param 
     const insertUserQuery = `
