@@ -5,10 +5,15 @@ const Navigation = () => {
   return (
     <nav>
       {/* add link to each page */}
-      <Link to="/">Home</Link>
-      <Link to="/dog">Dog</Link>
+      <Link to="/dog">Your Dogs</Link>
+      <Link to="/VaccineRecords">Vaccine Records</Link>
+      <Link to="/HaircutRecords">Haircut Records</Link>
+      <Link to="/tricks">Tricks</Link>
+      <Link to="/journal">Journal</Link>
     </nav>
   );
 };
 
 export default Navigation;
+
+
