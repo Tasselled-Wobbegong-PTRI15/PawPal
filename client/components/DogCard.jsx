@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 
 const DogCard = (props) => {
   const { name, pet_id } = props;
@@ -25,11 +26,13 @@ const DogCard = (props) => {
     fetchImage();
   }, []);
 
-
   return (
     <div>
       <p>name : {name}</p>
-      <img src={dogImage}/>
+      <img src={dogImage} alt={`${name}`}/>
+      <Link to={`/Dog/${pet_id}`}>
+        <button>View details</button>
+      </Link>
     </div>
   )
 }
