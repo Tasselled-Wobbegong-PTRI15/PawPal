@@ -2,14 +2,18 @@ const db = require('../models/petModels.js');
 
 const petController = {};
 
-petController.getPets = async (req, res, next) => {
+petController.getPet = async (req, res, next) => {
+  console.log('getPet hits')
+  const { pet_id } = req.query;
+  console.log('pet_id is', pet_id)
+
   try {
     const text = `
       SELECT * FROM pet
       WHERE pet_id = $1
     `
     // TO DO: edit param's arry to dynamically get owner_id (or pet_id) from request body 
-    const param = [16]
+    const param = [pet_id]
     const result = await db.query(text, param);
 
     res.locals.petInfo = result.rows[0];

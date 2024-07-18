@@ -27,7 +27,6 @@ app.use(express.json());
 // cookie parser - populate req.cookies
 app.use(cookieParser());
 
-
 // respond with html file when a GET request is made to homepage 
 app.get('/', (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, '../build', 'index.html'));

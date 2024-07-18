@@ -7,7 +7,7 @@ const sessionController = require('../controllers/sessionController');
 const router = express.Router();
 
 // handle 'get' request to /api. Send dog info to a client 
-router.get('/', petController.getPets, (req, res) => {
+router.get('/', petController.getPet, (req, res) => {
     return res.status(200).json(res.locals.petInfo);
 });
 

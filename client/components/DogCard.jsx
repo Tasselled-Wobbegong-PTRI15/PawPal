@@ -30,7 +30,7 @@ const DogCard = (props) => {
     <div>
       <p>name : {name}</p>
       <img src={dogImage} alt={`${name}`}/>
-      <Link to={`/Dog/${pet_id}`}>
+      <Link to={`/dog?pet_id=${pet_id}`}>
         <button>View details</button>
       </Link>
     </div>
