@@ -25,8 +25,6 @@ const Main = () => {
     fetchDogs();
   }, []);
 
-
-  // TODO - get image for each dog and save to a state 
   const pets = [];
   // loop over petList and create 'DogCard' component 
   for (let i = 0; i < petList.length; i++) {
@@ -38,9 +36,7 @@ const Main = () => {
       // add more props
     />)
   }
-
-  // Note- maybe we set a dogId in cookie here to pull a dog info?? 
-
+  
   return (
     <>
       <h4>Your dogs</h4>
