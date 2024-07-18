@@ -181,7 +181,7 @@ petController.getPetImage = async (req, res, next) => {
 petController.getPetList = async (req, res, next) => {
   console.log('getPetList hits')
   const owner_id = req.cookies.ssid;
-  console.log('owner id', owner_id)
+  // console.log('owner id', owner_id)
   try {
     const text = `
       SELECT *
