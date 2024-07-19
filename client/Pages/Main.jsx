@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import DogCard from '../components/DogCard.jsx';
-import AddDog from './AddDog.jsx';
+import React, { useState, useEffect } from "react";
+import DogCard from '../components/DogCard.jsx'
+import Header from "../components/Header.jsx"
 import {Link} from 'react-router-dom';
 
 const Main = () => {
@@ -42,15 +42,18 @@ const Main = () => {
   }
 
   return (
-    <>
+    <div>
+      <Header />
       <h4>Your dogs</h4>
-      <div>{pets}</div>
+      <div>
+        {pets}
+      </div>
       <Link to='/adddog'>
-        {/* <button className='navigate-dog-button'>Go to Dog Page</button> */}
-        {/* button */}
-        <button> Add Dog </button> 
-      </Link>
-    </>
+      {/* <button className='navigate-dog-button'>Go to Dog Page</button> */}
+      {/* button */}
+      <button> Add Dog </button> 
+    </Link>
+    </div>
   );
 };
 

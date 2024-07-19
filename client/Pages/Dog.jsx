@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Navigation from "../Navigation.jsx"; 
+import Header from "../components/Header.jsx"
 
 const Dog = () => {
   // access query parameter 
@@ -86,6 +87,7 @@ const Dog = () => {
 
   return (
     <div>
+      <Header />
       <Navigation pet_id={pet_id} />
       <Routes>
         <Route
