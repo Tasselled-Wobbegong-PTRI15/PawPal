@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Navigation from "../Navigation.jsx"; 
+import Header from "../components/Header.jsx"
 
 
 const Journal = () => {
@@ -11,7 +12,7 @@ const Journal = () => {
     
   return (
     <div>
-      {/* pass pet_id to Navigation as props */}
+      <Header />
       <Navigation pet_id={pet_id}/> 
       <h2>Journal</h2>
 
