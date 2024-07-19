@@ -29,6 +29,7 @@ const Journal = () => {
 return (
   <div>
     {/* pass pet_id to Navigation as props */}
+    <Header />
     <Navigation pet_id={pet_id} />
     <h2>Journal</h2>
     <Link to={`/addjournal?pet_id=${pet_id}`}>
