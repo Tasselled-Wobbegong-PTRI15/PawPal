@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Navigation from "../Navigation.jsx"; 
+import Header from "../components/Header.jsx"
 
 const HaircutRecords = () => {
   // access query parameter 
@@ -10,6 +11,7 @@ const HaircutRecords = () => {
 
   return (
     <div>
+      <Header />
       <Navigation pet_id={pet_id} />
       <h2>Haircut Records</h2>
 

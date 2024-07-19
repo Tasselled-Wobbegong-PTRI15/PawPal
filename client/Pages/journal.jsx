@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Route, Routes, useLocation, Link } from "react-router-dom";
 import Navigation from "../Navigation.jsx"; 
+import Header from "../components/Header.jsx"
 
 
 const Journal = () => {
