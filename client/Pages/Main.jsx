@@ -6,7 +6,6 @@ import {Link} from 'react-router-dom';
 const Main = () => {
   // create a state to store a list of dogs
   const [petList, setPetList] = useState([]); // petList is an array of object
-  const [showAddDog, setShowAddDog] = useState(false);
   // make a fetch request to get a list of dogs (cookie will be included in req.body)
   // loop over the returned array of dog info and store them to petList
   useEffect(() => {
@@ -26,33 +25,38 @@ const Main = () => {
     fetchDogs();
   }, []);
 
-  const pets = [];
-  // loop over petList and create 'DogCard' component
-  for (let i = 0; i < petList.length; i++) {
-    // render DogCard for each state
-    const currentPet = petList[i];
-    pets.push(
-      <DogCard
-        name={currentPet.name}
-        pet_id={currentPet.pet_id}
-
-        // add more props
-      />
-    );
-  }
+  const deleteDog = async (pet_id) => {
+    try {
+      const response = await fetch(`/api/?pet_id=${pet_id}`, { 
+        method: 'DELETE' 
+      });
+      if (response.ok) {
+        setPetList(petList.filter(pet => pet.pet_id !== pet_id));
+      } else {
+        console.log('Failed to delete dog');
+      }
+    } catch (error) {
+      console.log('error', error);
+    }
+  };
 
   return (
     <div>
       <Header />
       <h2>Your dogs</h2>
       <div className='doglist-container'>
-        {pets}
+        {petList.map((currentPet) => (
+          <DogCard
+            key={currentPet.pet_id}
+            name={currentPet.name}
+            pet_id={currentPet.pet_id}
+            deleteDog={deleteDog}
+          />
+        ))}
       </div>
       <Link to='/adddog'>
-      {/* <button className='navigate-dog-button'>Go to Dog Page</button> */}
-      {/* button */}
-      <button> Add Dog </button> 
-    </Link>
+        <button className='adddog-btn'> Add Dog </button> 
+      </Link>
     </div>
   );
 };
