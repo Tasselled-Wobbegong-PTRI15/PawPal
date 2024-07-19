@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 
 const DogCard = (props) => {
-  const { name, pet_id } = props;
+  const { name, pet_id, deleteDog} = props;
 
   const [dogImage, setDogImage] = useState('');
 
@@ -33,6 +33,7 @@ const DogCard = (props) => {
       <Link to={`/dog?pet_id=${pet_id}`}>
         <button>View details</button>
       </Link>
+      <button onClick={() => deleteDog(pet_id)}>Delete</button>
     </div>
   )
 }

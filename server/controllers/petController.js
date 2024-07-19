@@ -125,7 +125,8 @@ petController.editPets = async (req, res, next) => {
 
 // delete pets 
 petController.deletePets = async (req, res, next) => {
-  const { pet_id } = req.body;
+  // const { pet_id } = req.body;
+  const { pet_id } = req.params;
 
   try {
     const text = `
