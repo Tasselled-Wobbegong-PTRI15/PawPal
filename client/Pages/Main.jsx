@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import DogCard from '../components/DogCard.jsx'
+import Header from "../components/Header.jsx"
 
 const Main = () => {
 
@@ -38,12 +39,13 @@ const Main = () => {
   }
   
   return (
-    <>
+    <div>
+      <Header />
       <h4>Your dogs</h4>
       <div>
         {pets}
       </div>
-    </>
+    </div>
   );
 }
 
