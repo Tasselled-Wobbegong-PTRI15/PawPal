@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import DogCard from '../components/DogCard.jsx'
 import Header from "../components/Header.jsx"
+import { Link } from 'react-router-dom'
 
 const Main = () => {
 
@@ -45,42 +46,11 @@ const Main = () => {
       <div>
         {pets}
       </div>
+      <Link to='/adddog'>
+        <button>test</button>
+      </Link>
     </div>
   );
 }
 
 export default Main;
-
-/* code to get a dog image 
-  // Testing to fetch request to get image 
-  const [imageInfo, setImageInfo] = useState('');
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("/api/image");
-        if (!response.ok) {
-          console.log('response is not ok')
-        }
-        const result = await response.json();
-        console.log('returned: ', result);
-        setImageInfo(result); // Assuming the API returns an object with imageUrl
-      } catch (error) {
-        console.error('Fetch error:', error);
-        setError(error.message);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-    return (
-    <>
-      <p>This is a main app - To be edited</p>
-      <img src={imageInfo} alt="Fetched from API" />
-
-
-    </>
-  );
-*/
