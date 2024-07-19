@@ -26,6 +26,19 @@ const Main = () => {
     fetchDogs();
   }, []);
 
+  const deleteDog = async (pet_id) => {
+    try {
+      const response = await fetch(`/api/deletepet/${pet_id}`, { method: 'DELETE' });
+      if (response.ok) {
+        setPetList(petList.filter(pet => pet.pet_id !== pet_id));
+      } else {
+        console.log('Failed to delete dog');
+      }
+    } catch (error) {
+      console.log('error', error);
+    }
+  };
+
   const pets = [];
   // loop over petList and create 'DogCard' component
   for (let i = 0; i < petList.length; i++) {
@@ -35,7 +48,7 @@ const Main = () => {
       <DogCard
         name={currentPet.name}
         pet_id={currentPet.pet_id}
-
+        deleteDog={deleteDog}
         // add more props
       />
     );
@@ -46,7 +59,15 @@ const Main = () => {
       <Header />
       <h4>Your dogs</h4>
       <div>
-        {pets}
+        {/* {pets} */}
+        {petList.map((currentPet) => (
+          <DogCard
+            key={currentPet.pet_id}
+            name={currentPet.name}
+            pet_id={currentPet.pet_id}
+            deleteDog={deleteDog}
+          />
+        ))}
       </div>
       <Link to='/adddog'>
       {/* <button className='navigate-dog-button'>Go to Dog Page</button> */}
