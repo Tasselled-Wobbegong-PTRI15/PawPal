@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 /* login & sign up  */
 .form-content {
   display: flex;
@@ -47,3 +52,19 @@
   font-size: 16;
   margin-top: 30px;
 }
+
+/* dog card */
+.dog-card {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: 1px red solid;
+}
+
+.dog-image {
+  max-width: 500px;
+  max-width: 300px;
+}
+
+/* dog card */

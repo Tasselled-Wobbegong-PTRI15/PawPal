@@ -27,12 +27,14 @@ const DogCard = (props) => {
   }, []);
 
   return (
-    <div>
-      <p>name : {name}</p>
-      <img src={dogImage} alt={`${name}`}/>
-      <Link to={`/dog?pet_id=${pet_id}`}>
-        <button>View details</button>
-      </Link>
+    <div className='dog-card'>
+      <img className='dog-image' src={dogImage} alt={`${name}`}/>
+      <h4>{name}</h4>
+      <div className='dog-card-btns'>
+        <Link to={`/dog?pet_id=${pet_id}`}>
+          <button>See more</button>
+        </Link>
+      </div>
     </div>
   )
 }
