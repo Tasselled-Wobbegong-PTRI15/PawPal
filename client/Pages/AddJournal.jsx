@@ -7,25 +7,39 @@ const AddJournal = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const pet_id = queryParams.get('pet_id');
-  const [title, setTitle] = useState("");
-  const [textInput, setTextInput] = useState("");
-  const [photo, setPhoto] = useState(null);
+  // const [title, setTitle] = useState("");
+  // const [textInput, setTextInput] = useState("");
+  // const [photo, setPhoto] = useState(null);
+  const [journalInfo, setJournalInfo] = useState({
+    title: '',
+    text_input: '',
+    photo_url: '',
+  });
+
+  const handleChange = (e) => {
+    console.log('e.target.name ', e.target.name);
+    console.log('e.target.value ', e.target.value);
+    setJournalInfo({ ...journalInfo, [e.target.name]: e.target.value});
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    const formData = new FormData();
-    formData.append("title", title);
-    formData.append("text_input", textInput);
-    formData.append("dog_id", pet_id);
-    if (photo) {
-      formData.append("photo", photo);
-    }
-
+    // const formData = new FormData();
+    // formData.append("title", title);
+    // formData.append("text_input", textInput);
+    // formData.append("dog_id", pet_id);
+    // if (photo) {
+    //   formData.append("photo", photo);
+    // }
+    // console.log('state', journalInfo);
     try {
-      const response = await fetch("/api/journal", {
+      const response = await fetch(`/api/journal?pet_id=${pet_id}`, {
         method: "POST",
-        body: formData,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(journalInfo),
       });
 
       if (response.ok) {
@@ -48,8 +62,9 @@ const AddJournal = () => {
           <input
             type="text"
             id="title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            name="title"
+            value={journalInfo.title}
+            onChange={handleChange}
             required
           />
         </div>
@@ -57,8 +72,9 @@ const AddJournal = () => {
           <label htmlFor="textInput">Text:</label>
           <textarea
             id="textInput"
-            value={textInput}
-            onChange={(e) => setTextInput(e.target.value)}
+            name="text_input"
+            value={journalInfo.text_input}
+            onChange={handleChange}
             required
           />
         </div>
@@ -66,8 +82,9 @@ const AddJournal = () => {
           <label htmlFor="photo">Photo:</label>
           <input
             type="file"
+            name="photo_url"
             id="photo"
-            onChange={(e) => setPhoto(e.target.files[0])}
+            onChange={journalInfo.photo_url}
           />
         </div>
         <button type="submit">Add Journal Entry</button>

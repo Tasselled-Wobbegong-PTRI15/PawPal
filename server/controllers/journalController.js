@@ -47,20 +47,21 @@ journalController.getJournalList = async (req, res, next) => {
 
   // create journal
 journalController.createJournal = async (req, res, next) => {
-    const { title, text_input, dog_id, photo_url } = req.body;
-    // const owner_id = req.cookies.ssid;
-    // console.log('ownerId is', owner_id)
+    // get dog_id from query 
+    const {pet_id} = req.query;
+    console.log('pet_id is', pet_id);
+
+    const { title, text_input, photo_url } = req.body;
     console.log(`req.body: `, req.body)
-    console.log(title, text_input, dog_id, photo_url);
     // console.log('req body is ', req.body);
-    console.log(typeof dog_id);
     try {
       const text = `
         INSERT INTO journal (title, text_input, dog_id, photo_url)
         VALUES ($1, $2, $3, $4)
         RETURNING *;
       `
-      const params = [ title, text_input, dog_id, photo_url ];
+      const params = [ title, text_input, pet_id, photo_url ];
+      console.log('params is', params)
       const result = await db.query(text, params);
 
       console.log("passing query")
