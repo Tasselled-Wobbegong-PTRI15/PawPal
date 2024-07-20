@@ -22,7 +22,7 @@ router.patch('/',petController.editPets, (req, res) => {
 })
 
 // handle 'delete' request to /api. Delete dog info (row) from the database
-router.delete('/deletepet/:pet_id',petController.deletePets, (req, res) => {
+router.delete('/',petController.deletePets, (req, res) => {
     return res.status(200).json('successfully deleted');
 })
 
