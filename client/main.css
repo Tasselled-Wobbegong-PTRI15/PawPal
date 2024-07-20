@@ -1,0 +1,496 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* header */
+/* .header {
+  padding: 5px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 30px;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+} */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+
+.header-link {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.logout-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  background-color: #14c092;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 5px;
+
+}
+
+.logout-btn:hover {
+  background-color: #19aa83; 
+}
+
+/* login & sign up  */
+.form-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.form {
+  background-color: hsl(0, 0%, 94%);
+  padding: 20px;
+  border-radius: 30px;
+  width: 400px;
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.input-box {
+  margin-top: 15px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.btn {
+  background-color: #14c092;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #19aa83;
+}
+
+.hyperlink {
+  font-size: 16;
+  margin-top: 30px;
+}
+
+/* main page */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+
+.doglist-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.adddog-btn {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #14c092;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 200px;
+}
+
+.adddog-btn:hover {
+  background-color: #19aa83;
+}
+
+/* dog card */
+.dog-card {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 20px;
+  margin: 10px;
+  border: 1px solid rgba(142, 139, 139, 0.6);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.dog-card h4 {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.dog-image {
+  max-width: 500px;
+  max-width: 300px;
+}
+
+.dog-card-btn-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.dog-card-btn {
+  margin-top: 20px;
+  background-color: #14c092;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  width: 100px;
+  height: 35px;
+  flex: 1;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.dog-card-btn:hover {
+  background-color: #19aa83;
+}
+
+/* add dog */
+
+.add-dog-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-dog-wrapper {
+  width: 600px;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 600px;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.input-wrapper input {
+  width: 100%;
+  margin: 10px 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.add-dog-btn {
+  margin-top: 20px;
+  background-color: #14c092;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  height: 40px;
+}
+
+.add-dog-btn:hover {
+  background-color: #19aa83;
+}
+
+/* Navigation */
+.navbar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: white;
+  border-bottom: 1px solid #ccc;
+  padding: 5px 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.nav-link {
+  color: black;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+.nav-link:not(:last-child) {
+  margin-right: 20px;
+}
+
+.nav-link:hover {
+  color: #555;
+  border-bottom: 2px solid black;
+}
+
+/* dog page */
+.dog-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.dog-profile-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 50px;
+  background-color: #ffffff;
+  max-width: 600px;
+}
+
+.dog-profile-left h4 {
+  padding: 10px;
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.dog-profile-left img {
+  max-width: 600px;
+}
+
+.dog-profile-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #f4f0f0;
+  padding: 30px 50px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  min-width: 500px;
+  max-width: 600px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+}
+
+.dog-container label {
+  flex: 1;
+  margin-right: 50px;
+  min-width: 150px;
+}
+
+.dog-container input {
+  flex: 2;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.dog-container span {
+  flex: 2;
+  padding: 8px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.dog-container button {
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #14c092;
+  color: white;
+  cursor: pointer;
+  width: 100%;
+}
+
+.dog-container button:hover {
+  background-color: #19aa83;
+}
+
+/* Journal Page */
+.journal-container {
+  margin: 20px;
+  padding: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.journal-header {
+  font-size: 32px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.journal-list {
+  list-style-type: none;
+  padding: 20;
+}
+
+.journal-entry {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 10px 0;
+  background-color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.journal-date {
+  align-self: stretch; 
+  text-align: left; 
+  font-size: 14px !important;
+  color: #101010;
+  margin-bottom: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.journal-entry h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.journal-entry p {
+  font-size: 16px;
+  margin-bottom: 10px;
+
+}
+
+.journal-entry img {
+  max-width: 80%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; 
+} 
+
+.add-journal-btn {
+  background-color: #14c092;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.add-journal-btn:hover {
+  background-color: #19aa83;
+}
+
+/*Add Journal */
+
+.add-journal-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 30px; 
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.add-journal-wrapper {
+  width: 400px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.add-journal-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-journal-form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.add-journal-form-group label {
+  margin-bottom: 5px;
+}
+
+.add-journal-form-group input,
+.add-journal-form-group textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.add-journal-form-group textarea {
+  resize: vertical;
+  height: 200px;
+}
+
+.add-journal-btn {
+  background-color: #14c092;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 16px;
+}
+
+.add-journal-btn:hover {
+  background-color: #19aa83;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; 
+}
