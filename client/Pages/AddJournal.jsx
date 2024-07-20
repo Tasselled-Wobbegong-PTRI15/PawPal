@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Navigation from "../Navigation.jsx";
+import Header from "../components/Header.jsx"
 
 const AddJournal = () => {
   const navigate = useNavigate();
@@ -25,14 +26,7 @@ const AddJournal = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // const formData = new FormData();
-    // formData.append("title", title);
-    // formData.append("text_input", textInput);
-    // formData.append("dog_id", pet_id);
-    // if (photo) {
-    //   formData.append("photo", photo);
-    // }
-    // console.log('state', journalInfo);
+  
     try {
       const response = await fetch(`/api/journal?pet_id=${pet_id}`, {
         method: "POST",
@@ -54,41 +48,46 @@ const AddJournal = () => {
 
   return (
     <div>
+      < Header />
       <Navigation pet_id={pet_id} />
-      <h2>Add Journal Entry</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="title">Title:</label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            value={journalInfo.title}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="textInput">Text:</label>
-          <textarea
-            id="textInput"
-            name="text_input"
-            value={journalInfo.text_input}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="photo">Photo:</label>
-          <input
-            id="photo"
-            name="photo_url"
-            value={journalInfo.photo_url}
-            onChange={handleChange}
-          />
-        </div>
-        <button type="submit">Add Journal Entry</button>
-      </form>
+      <div className="add-journal-container">
+      <div className="add-journal-wrapper">
+        <h2 className="title">Add Journal Entry</h2>
+        <form onSubmit={handleSubmit} className="journal-form">
+          <div className="form-group">
+            <label htmlFor="title">Title</label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              value={journalInfo.title}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="textInput">Tell a story</label>
+            <textarea
+              id="textInput"
+              name="text_input"
+              value={journalInfo.text_input}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="photo">Add a photo</label>
+            <input
+              id="photo"
+              name="photo_url"
+              value={journalInfo.photo_url}
+              onChange={handleChange}
+            />
+          </div>
+          <button type="submit" className="btn">Add Journal Entry</button>
+        </form>
+      </div>
+    </div>
     </div>
   );
 };
