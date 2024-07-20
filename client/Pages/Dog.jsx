@@ -80,147 +80,159 @@ const Dog = () => {
     setIsEditing(false);
   };
 
+  // function to format date
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+    const day = String(date.getDate()).padStart(2, '0');
+  
+    return `${year}-${month}-${day}`;
+  }
+
   return (
     <div>
       <Header />
-      <div className='dog-container'>
+      <div>
         <Navigation pet_id={pet_id} />
-        {isEditing ? (
-          <div>
-            <p>
-              <label htmlFor="name">Name: </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={dogInfo.name}
-                onChange={handleChange}
-              />
-            </p>
-            <p>
-              <label htmlFor="species">Species: </label>
-              <input
-                type="text"
-                id="species"
-                name="species"
-                value={dogInfo.species}
-                onChange={handleChange}
-              />
-            </p>
-            <p>
-              <label htmlFor="breed">Breed: </label>
-              <input
-                type="text"
-                id="breed"
-                name="breed"
-                value={dogInfo.breed}
-                onChange={handleChange}
-              />
-            </p>
-            <p>
-              <label htmlFor="dob">Date of Birth: </label>
-              <input
-                type="text"
-                id="dob"
-                name="dob"
-                value={dogInfo.dob}
-                onChange={handleChange}
-              />
-            </p>
-            <p>
-              <label htmlFor="weight_lb">Weight(lbs): </label>
-              <input
-                type="text"
-                id="weight_lb"
-                name="weight_lb"
-                value={dogInfo.weight_lb}
-                onChange={handleChange}
-              />
-            </p>
-            <p>
-              <label htmlFor="height_cm">Height(cm): </label>
-              <input
-                type="text"
-                id="height_cm"
-                name="height_cm"
-                value={dogInfo.height_cm}
-                onChange={handleChange}
-              />
-            </p>
-            <p>
-              <label htmlFor="color">Color: </label>
-              <input
-                type="text"
-                id="color"
-                name="color"
-                value={dogInfo.color}
-                onChange={handleChange}
-              />
-            </p>
-            <p>
-              <label htmlFor="gender">Gender: </label>
-              <input
-                type="text"
-                id="gender"
-                name="gender"
-                value={dogInfo.gender}
-                onChange={handleChange}
-              />
-            </p>
-            <p>
-              <label htmlFor="microchip">Microchip number: </label>
-              <input
-                type="text"
-                id="microchip"
-                name="microchip"
-                value={dogInfo.microchip}
-                onChange={handleChange}
-              />
-            </p>
-            <button onClick={handleSaveClick}>Save</button>
-            <button onClick={handleCancelClick}>Cancel</button>
-          </div> 
-        ) : (
-          <div>
-            <p>
-              <label htmlFor="name">Name: </label>
-              <span id="dogName">{dogInfo.name} </span>
-            </p>
-            <p>
-              <label htmlFor="species">Species: </label>
-              <span id="species">{dogInfo.species} </span>
-            </p>
-            <p>
-              <label htmlFor="breed">Breed: </label>
-              <span id="breed">{dogInfo.breed} </span>
-            </p>
-            <p>
-              <label htmlFor="dob">Date of Birth: </label>
-              <span id="dob">{dogInfo.dob} </span>
-            </p>
-            <p>
-              <label htmlFor="weight_lb">Weight(lbs): </label>
-              <span id="weight_lb">{dogInfo.weight_lb} </span>
-            </p>
-            <p>
-              <label htmlFor="height_cm">Height(cm): </label>
-              <span id="height_cm">{dogInfo.height_cm} </span>
-            </p>
-            <p>
-              <label htmlFor="color">Color: </label>
-              <span id="color">{dogInfo.color} </span>
-            </p>
-            <p>
-              <label htmlFor="gender">Gender: </label>
-              <span id="gender">{dogInfo.gender} </span>
-            </p>
-            <p>
-              <label htmlFor="microchip">Microchip number: </label>
-              <span id="microchip">{dogInfo.microchip} </span>
-            </p>
-            <button onClick={handleEditClick}>Edit</button>
-          </div>
-        )}
+        <div className="dog-container">
+          {isEditing ? (
+            <div className="dog-profile-list">
+              <div className="form-group">
+                <label htmlFor="name">Name:</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={dogInfo.name}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="species">Species:</label>
+                <input
+                  type="text"
+                  id="species"
+                  name="species"
+                  value={dogInfo.species}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="breed">Breed:</label>
+                <input
+                  type="text"
+                  id="breed"
+                  name="breed"
+                  value={dogInfo.breed}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="dob">Date of Birth:</label>
+                <input
+                  type="text"
+                  id="dob"
+                  name="dob"
+                  value={formatDate(dogInfo.dob)}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="weight_lb">Weight (lbs):</label>
+                <input
+                  type="text"
+                  id="weight_lb"
+                  name="weight_lb"
+                  value={dogInfo.weight_lb}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="height_cm">Height (cm):</label>
+                <input
+                  type="text"
+                  id="height_cm"
+                  name="height_cm"
+                  value={dogInfo.height_cm}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="color">Color:</label>
+                <input
+                  type="text"
+                  id="color"
+                  name="color"
+                  value={dogInfo.color}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="gender">Gender:</label>
+                <input
+                  type="text"
+                  id="gender"
+                  name="gender"
+                  value={dogInfo.gender}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="microchip">Microchip number:</label>
+                <input
+                  type="text"
+                  id="microchip"
+                  name="microchip"
+                  value={dogInfo.microchip}
+                  onChange={handleChange}
+                />
+              </div>
+              <button onClick={handleSaveClick}>Save</button>
+              <button onClick={handleCancelClick}>Cancel</button>
+            </div>
+          ) : (
+            <div className="dog-profile-list">
+              <div className="form-group">
+                <label htmlFor="name">Name:</label>
+                <span id="dogName">{dogInfo.name}</span>
+              </div>
+              <div className="form-group">
+                <label htmlFor="species">Species:</label>
+                <span id="species">{dogInfo.species}</span>
+              </div>
+              <div className="form-group">
+                <label htmlFor="breed">Breed:</label>
+                <span id="breed">{dogInfo.breed}</span>
+              </div>
+              <div className="form-group">
+                <label htmlFor="dob">Date of Birth:</label>
+                <span id="dob">{formatDate(dogInfo.dob)}</span>
+              </div>
+              <div className="form-group">
+                <label htmlFor="weight_lb">Weight (lbs):</label>
+                <span id="weight_lb">{dogInfo.weight_lb}</span>
+              </div>
+              <div className="form-group">
+                <label htmlFor="height_cm">Height (cm):</label>
+                <span id="height_cm">{dogInfo.height_cm}</span>
+              </div>
+              <div className="form-group">
+                <label htmlFor="color">Color:</label>
+                <span id="color">{dogInfo.color}</span>
+              </div>
+              <div className="form-group">
+                <label htmlFor="gender">Gender:</label>
+                <span id="gender">{dogInfo.gender}</span>
+              </div>
+              <div className="form-group">
+                <label htmlFor="microchip">Microchip number:</label>
+                <span id="microchip">{dogInfo.microchip}</span>
+              </div>
+              <button onClick={handleEditClick}>Edit</button>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
@@ -228,191 +240,154 @@ const Dog = () => {
 
 export default Dog;
 
-/* save original return statement with Route. 
+/* save original 
 
-return (
+ return (
     <div>
       <Header />
-      <div className='dog-container'>
-
+      <div>
+        <Navigation pet_id={pet_id} />
+        <div className='dog-container'>
+          {isEditing ? (
+            <div className='dog-profile-list'>
+              <p>
+                <label htmlFor="name">Name: </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={dogInfo.name}
+                  onChange={handleChange}
+                />
+              </p>
+              <p>
+                <label htmlFor="species">Species: </label>
+                <input
+                  type="text"
+                  id="species"
+                  name="species"
+                  value={dogInfo.species}
+                  onChange={handleChange}
+                />
+              </p>
+              <p>
+                <label htmlFor="breed">Breed: </label>
+                <input
+                  type="text"
+                  id="breed"
+                  name="breed"
+                  value={dogInfo.breed}
+                  onChange={handleChange}
+                />
+              </p>
+              <p>
+                <label htmlFor="dob">Date of Birth: </label>
+                <input
+                  type="text"
+                  id="dob"
+                  name="dob"
+                  value={dogInfo.dob}
+                  onChange={handleChange}
+                />
+              </p>
+              <p>
+                <label htmlFor="weight_lb">Weight(lbs): </label>
+                <input
+                  type="text"
+                  id="weight_lb"
+                  name="weight_lb"
+                  value={dogInfo.weight_lb}
+                  onChange={handleChange}
+                />
+              </p>
+              <p>
+                <label htmlFor="height_cm">Height(cm): </label>
+                <input
+                  type="text"
+                  id="height_cm"
+                  name="height_cm"
+                  value={dogInfo.height_cm}
+                  onChange={handleChange}
+                />
+              </p>
+              <p>
+                <label htmlFor="color">Color: </label>
+                <input
+                  type="text"
+                  id="color"
+                  name="color"
+                  value={dogInfo.color}
+                  onChange={handleChange}
+                />
+              </p>
+              <p>
+                <label htmlFor="gender">Gender: </label>
+                <input
+                  type="text"
+                  id="gender"
+                  name="gender"
+                  value={dogInfo.gender}
+                  onChange={handleChange}
+                />
+              </p>
+              <p>
+                <label htmlFor="microchip">Microchip number: </label>
+                <input
+                  type="text"
+                  id="microchip"
+                  name="microchip"
+                  value={dogInfo.microchip}
+                  onChange={handleChange}
+                />
+              </p>
+              <button onClick={handleSaveClick}>Save</button>
+              <button onClick={handleCancelClick}>Cancel</button>
+            </div> 
+          ) : (
+            <div className='dog-profile-list'>
+              <p>
+                <label htmlFor="name">Name: </label>
+                <span id="dogName">{dogInfo.name} </span>
+              </p>
+              <p>
+                <label htmlFor="species">Species: </label>
+                <span id="species">{dogInfo.species} </span>
+              </p>
+              <p>
+                <label htmlFor="breed">Breed: </label>
+                <span id="breed">{dogInfo.breed} </span>
+              </p>
+              <p>
+                <label htmlFor="dob">Date of Birth: </label>
+                <span id="dob">{dogInfo.dob} </span>
+              </p>
+              <p>
+                <label htmlFor="weight_lb">Weight(lbs): </label>
+                <span id="weight_lb">{dogInfo.weight_lb} </span>
+              </p>
+              <p>
+                <label htmlFor="height_cm">Height(cm): </label>
+                <span id="height_cm">{dogInfo.height_cm} </span>
+              </p>
+              <p>
+                <label htmlFor="color">Color: </label>
+                <span id="color">{dogInfo.color} </span>
+              </p>
+              <p>
+                <label htmlFor="gender">Gender: </label>
+                <span id="gender">{dogInfo.gender} </span>
+              </p>
+              <p>
+                <label htmlFor="microchip">Microchip number: </label>
+                <span id="microchip">{dogInfo.microchip} </span>
+              </p>
+              <button onClick={handleEditClick}>Edit</button>
+            </div>
+          )}
+        </div>
       </div>
-      <Navigation pet_id={pet_id} />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            isEditing ? (
-              <div>
-                <p>
-                  <label htmlFor="name">Name: </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={dogInfo.name}
-                    onChange={handleChange}
-                  />
-                </p>
-                <p>
-                  <label htmlFor="species">Species: </label>
-                  <input
-                    type="text"
-                    id="species"
-                    name="species"
-                    value={dogInfo.species}
-                    onChange={handleChange}
-                  />
-                </p>
-                <p>
-                  <label htmlFor="breed">Breed: </label>
-                  <input
-                    type="text"
-                    id="breed"
-                    name="breed"
-                    value={dogInfo.breed}
-                    onChange={handleChange}
-                  />
-                </p>
-                <p>
-                  <label htmlFor="dob">Date of Birth: </label>
-                  <input
-                    type="text"
-                    id="dob"
-                    name="dob"
-                    value={dogInfo.dob}
-                    onChange={handleChange}
-                  />
-                </p>
-                <p>
-                  <label htmlFor="weight_lb">Weight(lbs): </label>
-                  <input
-                    type="text"
-                    id="weight_lb"
-                    name="weight_lb"
-                    value={dogInfo.weight_lb}
-                    onChange={handleChange}
-                  />
-                </p>
-                <p>
-                  <label htmlFor="height_cm">Height(cm): </label>
-                  <input
-                    type="text"
-                    id="height_cm"
-                    name="height_cm"
-                    value={dogInfo.height_cm}
-                    onChange={handleChange}
-                  />
-                </p>
-                <p>
-                  <label htmlFor="color">Color: </label>
-                  <input
-                    type="text"
-                    id="color"
-                    name="color"
-                    value={dogInfo.color}
-                    onChange={handleChange}
-                  />
-                </p>
-                <p>
-                  <label htmlFor="gender">Gender: </label>
-                  <input
-                    type="text"
-                    id="gender"
-                    name="gender"
-                    value={dogInfo.gender}
-                    onChange={handleChange}
-                  />
-                </p>
-                <p>
-                  <label htmlFor="microchip">Microchip number: </label>
-                  <input
-                    type="text"
-                    id="microchip"
-                    name="microchip"
-                    value={dogInfo.microchip}
-                    onChange={handleChange}
-                  />
-                </p>
-                <button onClick={handleSaveClick}>Save</button>
-                <button onClick={handleCancelClick}>Cancel</button>
-              </div>
-            ) : (
-              <div>
-                <p>
-                  <label htmlFor="name">Name: </label>
-                  <span id="dogName">{dogInfo.name} </span>
-                </p>
-                <p>
-                  <label htmlFor="species">Species: </label>
-                  <span id="species">{dogInfo.species} </span>
-                </p>
-                <p>
-                  <label htmlFor="breed">Breed: </label>
-                  <span id="breed">{dogInfo.breed} </span>
-                </p>
-                <p>
-                  <label htmlFor="dob">Date of Birth: </label>
-                  <span id="dob">{dogInfo.dob} </span>
-                </p>
-                <p>
-                  <label htmlFor="weight_lb">Weight(lbs): </label>
-                  <span id="weight_lb">{dogInfo.weight_lb} </span>
-                </p>
-                <p>
-                  <label htmlFor="height_cm">Height(cm): </label>
-                  <span id="height_cm">{dogInfo.height_cm} </span>
-                </p>
-                <p>
-                  <label htmlFor="color">Color: </label>
-                  <span id="color">{dogInfo.color} </span>
-                </p>
-                <p>
-                  <label htmlFor="gender">Gender: </label>
-                  <span id="gender">{dogInfo.gender} </span>
-                </p>
-                <p>
-                  <label htmlFor="microchip">Microchip number: </label>
-                  <span id="microchip">{dogInfo.microchip} </span>
-                </p>
-                <button onClick={handleEditClick}>Edit</button>
-              </div>
-            )
-          }
-        />
-        <Route
-          path="VaccineRecords"
-          element={
-            <div>
-              <h2>Vaccine Records</h2>
-            </div>
-          }
-        />
-        <Route
-          path="HaircutRecords"
-          element={
-            <div>
-              <h2>Haircut Records</h2>
-            </div>
-          }
-        />
-        <Route
-          path="tricks"
-          element={
-            <div>
-              <h2>Tricks</h2>
-            </div>
-          }
-        />
-        <Route
-          path="journal"
-          element={
-            <div>
-              <h2>Journal</h2>
-            </div>
-          }
-        />
-      </Routes>
     </div>
   );
+};
 
 */
