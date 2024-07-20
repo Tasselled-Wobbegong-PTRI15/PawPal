@@ -38,16 +38,19 @@ const Journal = () => {
         <button className="add-journal-btn">Add Journal Entry</button>
       </Link>
       </div>
-      <ul className="journal-list">
-        {journalEntries.map((entry) => (
-          <li key={entry.id} className="journal-entry">
-            <p className="journal-date">{new Date(entry.created_at).toLocaleString()}</p>
-            <h3>{entry.title}</h3>
-            {entry.photo_url && <img src={entry.photo_url} alt={entry.title} />}
-            <p>{entry.text_input}</p>
-          </li>
-        ))}
-      </ul>
+      <div className='journal-list-wrapper'>
+        <ul className="journal-list">
+          {journalEntries.map((entry) => (
+            <li key={entry.id} className="journal-entry">
+              <p className="journal-date">{new Date(entry.created_at).toLocaleString()}</p>
+              <h3>{entry.title}</h3>
+              {entry.photo_url && <img src={entry.photo_url} alt={entry.title} />}
+              <p>{entry.text_input}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+      
     </div>
   );
 };
