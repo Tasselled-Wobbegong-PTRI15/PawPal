@@ -494,3 +494,17 @@
   display: flex;
   justify-content: center; 
 }
+
+.journal-list {
+  display: flex;
+  justify-content: center;
+}
+
+.journal-list img {
+  max-width: 500px;
+}
+
+.journal-entry {
+  max-width: 1000px;
+  width: 100%;
+}
