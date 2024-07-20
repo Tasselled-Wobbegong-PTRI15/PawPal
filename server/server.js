@@ -47,6 +47,9 @@ app.use('/allpets', apiRouter);
 // log in route - handle a request to log in
 app.use('/login', loginRouter)
 
+// journal route - handle request to /journal
+app.use('/journal', apiRouter)
+
 // catch-all route handler for any requests to an unknown route
 app.use('*', (req, res) => {
   console.log('catch-all route handler is executed');

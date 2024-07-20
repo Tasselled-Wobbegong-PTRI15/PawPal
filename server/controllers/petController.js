@@ -200,7 +200,7 @@ petController.getPetList = async (req, res, next) => {
     return next({
       log: `petController.getPetList ERROR: ${error}`,
       message: {
-        err: 'Error in petController.getgPetList.'
+        err: 'Error in petController.getPetList.'
       },
       status: 500
     });

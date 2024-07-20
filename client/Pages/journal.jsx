@@ -15,7 +15,8 @@ const Journal = () => {
   useEffect(() => {
     const fetchJournalEntries = async () => {
       try {
-        const response = await fetch(`/api/journal?dog_id=${pet_id}`);
+        const response = await fetch(`/api/alljournals?dog_id=${pet_id}`);
+        console.log("fetch succesful")
         const result = await response.json();
         setJournalEntries(result);
       } catch (error) {

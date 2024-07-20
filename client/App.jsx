@@ -13,7 +13,6 @@ import AddJournal from "./Pages/AddJournal.jsx";
 // import Navigation from './Navigation.jsx'; // => navigation to be moved to 'Dog.jsx' and its child components 
 
 // App component sets up the router and defines all the routes for the application
-// App component sets up the router and defines all the routes for the application
 const App = () => {
   return (
     <Router>
@@ -32,40 +31,6 @@ const App = () => {
     </Router>
   );
 };
-
-
-// const router = createBrowserRouter([
-// {
-// path: "/",
-//     element: <Main />,
-//     children: [
-//       {
-//         path: "/dog/:dog_id",
-//         element: <p> Hi </p>,
-//   }
-// ]
-//   }, 
-// {
-// path: '/adddog',
-// element: <AddDog/>,
-// }, 
-// {
-// path: '/signup',
-// element: <Signup/>,
-// }, 
-// {
-// path: '/login',
-// element: <Login/>,
-// }, 
-// ])
-
-// const AppX = () => {
-//   return (
-//     <RouterProvider router={router} />
-//   )
-// }
-
-// nesting into /dog -> to inherit query parameter 
 
 export default App;
 
