@@ -26,6 +26,29 @@ const Dog = () => {
   const [petId, setPetId] = useState(pet_id);
   const [isEditing, setIsEditing] = useState(false);
 
+  // store dog image 
+
+  const [dogImage, setDogImage] = useState('');
+
+  // get dog image 
+  useEffect(() => {
+    const fetchImage = async () => {
+      try {
+        const response = await fetch(`/api/image?pet_id=${pet_id}`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json"
+          },
+        });
+        const result = await response.json();
+        setDogImage(result); // Assuming the API returns an object with imageUrl
+      } catch (error) {
+        console.log('Fetch error');
+      }
+    };
+    fetchImage();
+  }, []);
+
   useEffect(() => {
     const displayDogInfo = async () => {
       console.log("displayDogInfo is running");
@@ -61,7 +84,10 @@ const Dog = () => {
 
       if (response.ok) {
         const result = await response.json();
-        setDogInfo(result);
+        setDogInfo({
+          ...dogInfo,
+          result,
+        });
         setIsEditing(false);
       } else {
         console.log("Failed to update dog info");
@@ -96,6 +122,11 @@ const Dog = () => {
       <div>
         <Navigation pet_id={pet_id} />
         <div className="dog-container">
+        <div className="dog-profile-left">
+          <h4>{dogInfo.name}</h4>
+          <img className='dog-image' src={dogImage} alt={`${dogInfo.name}`}/>
+        </div>
+        
           {isEditing ? (
             <div className="dog-profile-list">
               <div className="form-group">
