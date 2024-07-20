@@ -341,8 +341,10 @@
 
 .journal-list {
   list-style-type: none;
-  padding: 0;
+  padding: 20;
 }
+
+
 
 .journal-entry {
   display: flex;
@@ -354,6 +356,16 @@
   padding: 20px;
   margin: 10px 0;
   background-color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.journal-date {
+  align-self: stretch; 
+  text-align: left; 
+  font-size: 14px !important;
+  color: #101010;
+  margin-bottom: 10px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .journal-entry h3 {
@@ -364,18 +376,19 @@
 .journal-entry p {
   font-size: 16px;
   margin-bottom: 10px;
+
 }
 
 .journal-entry img {
-  max-width: 100%;
+  max-width: 80%;
   height: auto;
   border-radius: 10px;
   margin-bottom: 10px;
 }
 
-.journal-entry small {
-  font-size: 12px;
-  color: #777;
+.button-container {
+  display: flex;
+  justify-content: center; /* Horizontally center */
 }
 
 .add-journal-btn {
@@ -386,9 +399,11 @@
   border-radius: 4px;
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .add-journal-btn:hover {
   background-color: #19aa83;
 }
+
