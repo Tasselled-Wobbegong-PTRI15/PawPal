@@ -8,9 +8,7 @@ const AddJournal = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const pet_id = queryParams.get('pet_id');
-  // const [title, setTitle] = useState("");
-  // const [textInput, setTextInput] = useState("");
-  // const [photo, setPhoto] = useState(null);
+
   const [journalInfo, setJournalInfo] = useState({
     title: '',
     text_input: '',
@@ -26,7 +24,6 @@ const AddJournal = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-  
     try {
       const response = await fetch(`/api/journal?pet_id=${pet_id}`, {
         method: "POST",

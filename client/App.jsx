@@ -10,6 +10,7 @@ import HaircutRecords from './Pages/HaircutRecords.jsx';
 import Tricks from './Pages/tricks.jsx';
 import Journal from './Pages/journal.jsx';
 import AddJournal from "./Pages/AddJournal.jsx";
+import AddVetRecord from './Pages/AddVetRecord.jsx';
 // import Navigation from './Navigation.jsx'; // => navigation to be moved to 'Dog.jsx' and its child components 
 
 // App component sets up the router and defines all the routes for the application
@@ -27,6 +28,7 @@ const App = () => {
           <Route path='/tricks' element={<Tricks />} />
         <Route path='/journal' element={<Journal />} />
         <Route path='/addjournal' element={<AddJournal />} />
+        <Route path='/addvetrecord' element={<AddVetRecord />} />
         </Routes>
     </Router>
   );
