@@ -54,7 +54,7 @@ const AddJournal = () => {
       <div className="add-journal-wrapper">
         <h2 className="title">Add Journal Entry</h2>
         <form onSubmit={handleSubmit} className="journal-form">
-          <div className="form-group">
+          <div className="add-journal-form-group">
             <label htmlFor="title">Title</label>
             <input
               type="text"
@@ -65,7 +65,7 @@ const AddJournal = () => {
               required
             />
           </div>
-          <div className="form-group">
+          <div className="add-journal-form-group">
             <label htmlFor="textInput">Tell a story</label>
             <textarea
               id="textInput"
@@ -75,7 +75,7 @@ const AddJournal = () => {
               required
             />
           </div>
-          <div className="form-group">
+          <div className="add-journal-form-group">
             <label htmlFor="photo">Add a photo</label>
             <input
               id="photo"
@@ -84,7 +84,9 @@ const AddJournal = () => {
               onChange={handleChange}
             />
           </div>
-          <button type="submit" className="btn">Add Journal Entry</button>
+          <div className="button-container">
+          <button type="submit" className="add-journal-btn">Add Journal Entry</button>
+          </div>
         </form>
       </div>
     </div>

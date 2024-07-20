@@ -411,7 +411,7 @@
 .button-container {
   display: flex;
   justify-content: center; 
-}
+} 
 
 .add-journal-btn {
   background-color: #14c092;
@@ -447,35 +447,35 @@
   background-color: #fff;
 }
 
-.journal-form {
+.add-journal-form {
   display: flex;
   flex-direction: column;
 }
 
-.form-group {
+.add-journal-form-group {
   margin-bottom: 15px;
   display: flex;
   flex-direction: column;
 }
 
-.form-group label {
+.add-journal-form-group label {
   margin-bottom: 5px;
 }
 
-.form-group input,
-.form-group textarea {
+.add-journal-form-group input,
+.add-journal-form-group textarea {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   width: 100%;
 }
 
-.form-group textarea {
+.add-journal-form-group textarea {
   resize: vertical;
   height: 200px;
 }
 
-.btn {
+.add-journal-btn {
   background-color: #14c092;
   color: white;
   padding: 10px 20px;
@@ -486,6 +486,11 @@
   font-size: 16px;
 }
 
-.btn:hover {
+.add-journal-btn:hover {
   background-color: #19aa83;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; 
 }
