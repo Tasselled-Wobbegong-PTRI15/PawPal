@@ -8,7 +8,6 @@ const Dog = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const pet_id = queryParams.get('pet_id');
-  console.log('pet_id is', pet_id);
 
   const [dogInfo, setDogInfo] = useState({
     name: "",
@@ -25,10 +24,7 @@ const Dog = () => {
 
   // store pet_id in state
   const [petId, setPetId] = useState(pet_id);
-
   const [isEditing, setIsEditing] = useState(false);
-
-  console.log("state is", dogInfo);
 
   useEffect(() => {
     const displayDogInfo = async () => {
@@ -36,7 +32,6 @@ const Dog = () => {
       try {
         const response = await fetch(`/api?pet_id=${petId}`);
         const result = await response.json();
-        // console.log("result", result);
         setDogInfo(result);
       } catch (error) {
         console.log("error happened in fetch request");
@@ -88,6 +83,159 @@ const Dog = () => {
   return (
     <div>
       <Header />
+      <div className='dog-container'>
+        <Navigation pet_id={pet_id} />
+        {isEditing ? (
+          <div>
+            <p>
+              <label htmlFor="name">Name: </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={dogInfo.name}
+                onChange={handleChange}
+              />
+            </p>
+            <p>
+              <label htmlFor="species">Species: </label>
+              <input
+                type="text"
+                id="species"
+                name="species"
+                value={dogInfo.species}
+                onChange={handleChange}
+              />
+            </p>
+            <p>
+              <label htmlFor="breed">Breed: </label>
+              <input
+                type="text"
+                id="breed"
+                name="breed"
+                value={dogInfo.breed}
+                onChange={handleChange}
+              />
+            </p>
+            <p>
+              <label htmlFor="dob">Date of Birth: </label>
+              <input
+                type="text"
+                id="dob"
+                name="dob"
+                value={dogInfo.dob}
+                onChange={handleChange}
+              />
+            </p>
+            <p>
+              <label htmlFor="weight_lb">Weight(lbs): </label>
+              <input
+                type="text"
+                id="weight_lb"
+                name="weight_lb"
+                value={dogInfo.weight_lb}
+                onChange={handleChange}
+              />
+            </p>
+            <p>
+              <label htmlFor="height_cm">Height(cm): </label>
+              <input
+                type="text"
+                id="height_cm"
+                name="height_cm"
+                value={dogInfo.height_cm}
+                onChange={handleChange}
+              />
+            </p>
+            <p>
+              <label htmlFor="color">Color: </label>
+              <input
+                type="text"
+                id="color"
+                name="color"
+                value={dogInfo.color}
+                onChange={handleChange}
+              />
+            </p>
+            <p>
+              <label htmlFor="gender">Gender: </label>
+              <input
+                type="text"
+                id="gender"
+                name="gender"
+                value={dogInfo.gender}
+                onChange={handleChange}
+              />
+            </p>
+            <p>
+              <label htmlFor="microchip">Microchip number: </label>
+              <input
+                type="text"
+                id="microchip"
+                name="microchip"
+                value={dogInfo.microchip}
+                onChange={handleChange}
+              />
+            </p>
+            <button onClick={handleSaveClick}>Save</button>
+            <button onClick={handleCancelClick}>Cancel</button>
+          </div> 
+        ) : (
+          <div>
+            <p>
+              <label htmlFor="name">Name: </label>
+              <span id="dogName">{dogInfo.name} </span>
+            </p>
+            <p>
+              <label htmlFor="species">Species: </label>
+              <span id="species">{dogInfo.species} </span>
+            </p>
+            <p>
+              <label htmlFor="breed">Breed: </label>
+              <span id="breed">{dogInfo.breed} </span>
+            </p>
+            <p>
+              <label htmlFor="dob">Date of Birth: </label>
+              <span id="dob">{dogInfo.dob} </span>
+            </p>
+            <p>
+              <label htmlFor="weight_lb">Weight(lbs): </label>
+              <span id="weight_lb">{dogInfo.weight_lb} </span>
+            </p>
+            <p>
+              <label htmlFor="height_cm">Height(cm): </label>
+              <span id="height_cm">{dogInfo.height_cm} </span>
+            </p>
+            <p>
+              <label htmlFor="color">Color: </label>
+              <span id="color">{dogInfo.color} </span>
+            </p>
+            <p>
+              <label htmlFor="gender">Gender: </label>
+              <span id="gender">{dogInfo.gender} </span>
+            </p>
+            <p>
+              <label htmlFor="microchip">Microchip number: </label>
+              <span id="microchip">{dogInfo.microchip} </span>
+            </p>
+            <button onClick={handleEditClick}>Edit</button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default Dog;
+
+/* save original return statement with Route. 
+
+return (
+    <div>
+      <Header />
+      <div className='dog-container'>
+
+      </div>
       <Navigation pet_id={pet_id} />
       <Routes>
         <Route
@@ -266,7 +414,5 @@ const Dog = () => {
       </Routes>
     </div>
   );
-};
 
-export default Dog;
-
+*/

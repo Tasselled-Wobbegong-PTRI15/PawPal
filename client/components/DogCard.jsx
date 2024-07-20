@@ -10,7 +10,6 @@ const DogCard = (props) => {
   useEffect(() => {
     const fetchImage = async () => {
       try {
-        console.log('make a fetch')
         const response = await fetch(`/api/image?pet_id=${pet_id}`, {
           method: "GET",
           headers: {
@@ -30,11 +29,11 @@ const DogCard = (props) => {
     <div className='dog-card'>
       <img className='dog-image' src={dogImage} alt={`${name}`}/>
       <h4>{name}</h4>
-      <div className='dog-card-btns'>
+      <div className='dog-card-btn-wrapper'>
         <Link to={`/dog?pet_id=${pet_id}`}>
-          <button>See more</button>
+          <button className='dog-card-btn'>See more</button>
         </Link>
-        <button onClick={() => deleteDog(pet_id)}>Delete</button>
+        <button className='dog-card-btn' onClick={() => deleteDog(pet_id)}>Delete</button>
       </div>
     </div>
   )

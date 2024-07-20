@@ -43,6 +43,7 @@ const Main = () => {
   return (
     <div>
       <Header />
+      <div className='main-container'>      
       <h2>Your dogs</h2>
       <div className='doglist-container'>
         {petList.map((currentPet) => (
@@ -57,6 +58,7 @@ const Main = () => {
       <Link to='/adddog'>
         <button className='adddog-btn'> Add Dog </button> 
       </Link>
+      </div>
     </div>
   );
 };
