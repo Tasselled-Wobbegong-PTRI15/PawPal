@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 
 const DogCard = (props) => {
-  const { name, pet_id } = props;
+  const { name, pet_id, deleteDog } = props;
 
   const [dogImage, setDogImage] = useState('');
 
@@ -10,7 +10,6 @@ const DogCard = (props) => {
   useEffect(() => {
     const fetchImage = async () => {
       try {
-        console.log('make a fetch')
         const response = await fetch(`/api/image?pet_id=${pet_id}`, {
           method: "GET",
           headers: {
@@ -27,12 +26,15 @@ const DogCard = (props) => {
   }, []);
 
   return (
-    <div>
-      <p>name : {name}</p>
-      <img src={dogImage} alt={`${name}`}/>
-      <Link to={`/dog?pet_id=${pet_id}`}>
-        <button>View details</button>
-      </Link>
+    <div className='dog-card'>
+      <img className='dog-image' src={dogImage} alt={`${name}`}/>
+      <h4>{name}</h4>
+      <div className='dog-card-btn-wrapper'>
+        <Link to={`/dog?pet_id=${pet_id}`}>
+          <button className='dog-card-btn'>See more</button>
+        </Link>
+        <button className='dog-card-btn' onClick={() => deleteDog(pet_id)}>Delete</button>
+      </div>
     </div>
   )
 }
