@@ -517,17 +517,28 @@
 }
 
 
-.journal-list {
+.journal-list-wrapper {
   display: flex;
   justify-content: center;
 }
 
+.journal-list {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
 .journal-list img {
-  max-width: 500px;
+  max-width: 400px;
 }
 
 .journal-entry {
   max-width: 1000px;
   width: 100%;
+  margin: 10px;
+}
+
+.journal-list p {
+  max-width: 500px;
 }
 
