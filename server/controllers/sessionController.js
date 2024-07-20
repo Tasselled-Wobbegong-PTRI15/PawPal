@@ -34,7 +34,6 @@ sessionController.isLoggedIn = async (req, res, next) => {
   // console.log(`ssid: `, ssid);
 
   if(!ssid) {
-    console.log("entering here")
     return res.status(400).send("not logged in")
   }
 
