@@ -3,8 +3,8 @@
   padding: 0;
 }
 
-/* header */ 
-.header {
+/* header */
+/* .header {
   padding: 5px 15px;
   display: flex;
   align-items: center;
@@ -12,13 +12,37 @@
   height: 30px;
   width: 100%;
   font-family: Arial, Helvetica, sans-serif;
+} */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
 }
+
 
 .header-link {
   margin-left: 20px;
   display: flex;
   flex-direction: row;
-  align-items: center
+  align-items: center;
+}
+
+.logout-button {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  background-color: lightgreen;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.logout-button:hover {
+  background-color: #90ee90; /* Slightly darker green on hover */
 }
 
 /* login & sign up  */
@@ -84,8 +108,8 @@
 .doglist-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; 
-  gap: 20px; 
+  justify-content: center;
+  gap: 20px;
 }
 
 .adddog-btn {
@@ -101,7 +125,7 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-left: auto;
   margin-right: auto;
-  min-width: 200px; 
+  min-width: 200px;
 }
 
 .adddog-btn:hover {
@@ -114,8 +138,8 @@
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
-  padding: 20px; 
-  margin: 10px; 
+  padding: 20px;
+  margin: 10px;
   border: 1px solid rgba(142, 139, 139, 0.6);
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -204,7 +228,7 @@
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
-  height: 40px
+  height: 40px;
 }
 
 .add-dog-btn:hover {
