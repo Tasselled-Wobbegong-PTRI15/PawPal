@@ -350,6 +350,7 @@
   background-color: #19aa83;
 }
 
+/* Journal Page */
 .journal-container {
   margin: 20px;
   padding: 20px;
@@ -366,8 +367,6 @@
   list-style-type: none;
   padding: 20;
 }
-
-
 
 .journal-entry {
   display: flex;
@@ -411,7 +410,7 @@
 
 .button-container {
   display: flex;
-  justify-content: center; /* Horizontally center */
+  justify-content: center; 
 }
 
 .add-journal-btn {
@@ -430,3 +429,63 @@
   background-color: #19aa83;
 }
 
+/*Add Journal */
+
+.add-journal-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 30px; 
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.add-journal-wrapper {
+  width: 400px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.journal-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.form-group textarea {
+  resize: vertical;
+  height: 200px;
+}
+
+.btn {
+  background-color: #14c092;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 16px;
+}
+
+.btn:hover {
+  background-color: #19aa83;
+}
