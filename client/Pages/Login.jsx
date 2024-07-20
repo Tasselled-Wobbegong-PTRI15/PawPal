@@ -50,10 +50,13 @@ const Login = () => {
 
   return (
     <div className="forms">
+      <div className="login-header">
+      <h1>Paw Pal</h1>
+      </div>
       <div className="form-content">
         <div className="form">
         <div className="title">
-          <div className="title">Login</div>
+          <div className="title"></div>
           <form onSubmit={handleSubmit}>
             <div className="input-box">
               <input

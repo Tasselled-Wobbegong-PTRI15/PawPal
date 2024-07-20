@@ -52,7 +52,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 30%;
 }
 
 .form {
@@ -494,3 +494,51 @@
   display: flex;
   justify-content: center; 
 }
+
+<<<<<<< HEAD
+
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.login-header {
+  margin-bottom: 20px;
+}
+
+.login-header h1 {
+  font-size: 40px;
+  color: #14c092;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 20px;
+}
+
+
+.journal-list-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.journal-list {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.journal-list img {
+  max-width: 400px;
+}
+
+.journal-entry {
+  max-width: 1000px;
+  width: 100%;
+  margin: 10px;
+}
+
+.journal-list p {
+  max-width: 500px;
+}
+
