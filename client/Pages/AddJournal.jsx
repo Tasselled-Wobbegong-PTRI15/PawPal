@@ -81,10 +81,10 @@ const AddJournal = () => {
         <div>
           <label htmlFor="photo">Photo:</label>
           <input
-            type="file"
-            name="photo_url"
             id="photo"
-            onChange={journalInfo.photo_url}
+            name="photo_url"
+            value={journalInfo.photo_url}
+            onChange={handleChange}
           />
         </div>
         <button type="submit">Add Journal Entry</button>
