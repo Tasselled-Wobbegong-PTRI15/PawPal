@@ -28,27 +28,26 @@ const Journal = () => {
   }, [pet_id]);
 
 
-return (
-  <div>
-    {/* pass pet_id to Navigation as props */}
-    <Header />
-    <Navigation pet_id={pet_id} />
-    <h2>Journal</h2>
-    <Link to={`/addjournal?pet_id=${pet_id}`}>
-      <button>Add Journal Entry</button>
-    </Link>
-    <ul>
-      {journalEntries.map((entry) => (
-        <li key={entry.id}>
-          <h3>{entry.title}</h3>
-          <p>{entry.text_input}</p>
-          {entry.photo_url && <img src={entry.photo_url} alt={entry.title} />}
-          <p><small>{new Date(entry.created_at).toLocaleString()}</small></p>
-        </li>
-      ))}
-    </ul>
-  </div>
-);
+  return (
+    <div>
+      < Header />
+      <Navigation pet_id={pet_id} />
+      <h2 className="journal-header">Journal</h2>
+      <Link to={`/addjournal?pet_id=${pet_id}`}>
+        <button className="add-journal-btn">Add Journal Entry</button>
+      </Link>
+      <ul className="journal-list">
+        {journalEntries.map((entry) => (
+          <li key={entry.id} className="journal-entry">
+            <h3>{entry.title}</h3>
+            <p>{entry.text_input}</p>
+            {entry.photo_url && <img src={entry.photo_url} alt={entry.title} />}
+            <p><small>{new Date(entry.created_at).toLocaleString()}</small></p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 };
 
 export default Journal;

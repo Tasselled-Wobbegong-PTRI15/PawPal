@@ -302,3 +302,69 @@
 .dog-container button:hover {
   background-color: #19aa83;
 }
+
+.journal-container {
+  margin: 20px;
+  padding: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.journal-header {
+  font-size: 32px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.journal-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.journal-entry {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 10px 0;
+  background-color: #fff;
+}
+
+.journal-entry h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.journal-entry p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.journal-entry img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.journal-entry small {
+  font-size: 12px;
+  color: #777;
+}
+
+.add-journal-btn {
+  background-color: #14c092;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.add-journal-btn:hover {
+  background-color: #19aa83;
+}
