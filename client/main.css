@@ -29,20 +29,22 @@
   align-items: center;
 }
 
-.logout-button {
+.logout-btn {
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  background-color: lightgreen;
+  background-color: #14c092;
+  color: white;
   border: none;
   padding: 5px 10px;
   cursor: pointer;
   font-size: 14px;
   border-radius: 5px;
+
 }
 
-.logout-button:hover {
-  background-color: #90ee90; /* Slightly darker green on hover */
+.logout-btn:hover {
+  background-color: #19aa83; 
 }
 
 /* login & sign up  */
@@ -268,8 +270,28 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   margin: 30px;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.dog-profile-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 50px;
+  background-color: #ffffff;
+  max-width: 600px;
+}
+
+.dog-profile-left h4 {
+  padding: 10px;
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.dog-profile-left img {
+  max-width: 600px;
 }
 
 .dog-profile-list {
@@ -280,6 +302,7 @@
   padding: 30px 50px;
   border-radius: 10px;
   background-color: #ffffff;
+  min-width: 500px;
   max-width: 600px;
 }
 

@@ -5,7 +5,7 @@ import Dog from './Pages/Dog.jsx';
 import Signup from './Pages/Signup.jsx';
 import Login from './Pages/Login.jsx';
 import Main from './Pages/Main.jsx';
-import VaccineRecords from "./Pages/VaccineRecords.jsx";
+import VetRecords from "./Pages/VetRecords.jsx";
 import HaircutRecords from './Pages/HaircutRecords.jsx';
 import Tricks from './Pages/tricks.jsx';
 import Journal from './Pages/journal.jsx';
@@ -22,7 +22,7 @@ const App = () => {
           <Route path='/signup' element={<Signup />} />
           <Route path='/login' element={<Login />} />
           <Route path='/dog' element={<Dog />} />
-          <Route path= '/VaccineRecords' element = {<VaccineRecords />} />
+          <Route path= '/VetRecords' element = {<VetRecords />} />
           <Route path= '/HaircutRecords' element = {<HaircutRecords />} />
           <Route path='/tricks' element={<Tricks />} />
         <Route path='/journal' element={<Journal />} />

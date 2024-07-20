@@ -18,7 +18,7 @@ const Header = () => {
         {/* header icon is temporary */}
         <img src='https://t4.ftcdn.net/jpg/01/01/41/55/360_F_101415569_akATewxhbvvsRayMdjoOIhPGhYhWMpLn.jpg' alt='icon' height='25px'></img>
       </Link>
-      <button onClick={handleLogout} className='logout-button'>
+      <button onClick={handleLogout} className='logout-btn'>
         Logout
       </button>
     </div>
