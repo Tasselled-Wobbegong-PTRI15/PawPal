@@ -28,7 +28,6 @@ router.delete('/',petController.deletePets, (req, res) => {
 })
 
 // handle 'get' request to /api/image. Send dog image to a client 
-// TODO: complete 'getPetImage' middleware
 router.get('/image', petController.getPetImage, (req, res) => {
     return res.status(200).json(res.locals.petImage);
 })
